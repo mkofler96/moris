@@ -2,16 +2,20 @@ name: Generate and Deploy Doxygen Docs
 
 on:
   push:
-    branches: [ main, docu ]
+    branches: [main, docu]
   workflow_dispatch:
 
-jobs:
-  doxygen-docs:
-    runs-on: ubuntu-latest
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Install Doxygen and Graphviz
         run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
@@ -30,9 +34,24 @@ jobs:
       - name: Run Doxygen
         run: doxygen Doxyfile
 
-      - name: Deploy to GitHub Pages via Actions
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs_output/html
-          publish_branch: gh-pages
+          path: docs_output/html
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
