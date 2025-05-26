@@ -2,7 +2,7 @@ name: Generate and Deploy Doxygen Docs (CMake)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, docu ]
   workflow_dispatch:
 
 jobs:
