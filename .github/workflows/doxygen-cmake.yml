@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Doxygen
+      - name: Install Doxygen and Graphviz
         run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
 
       - name: Generate default Doxyfile
@@ -30,10 +30,9 @@ jobs:
       - name: Run Doxygen
         run: doxygen Doxyfile
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages via Actions
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs_output/html
           publish_branch: gh-pages
-          destination_dir: ${{ github.ref_name }}  # publishes to /main/ or /docu/ etc.
