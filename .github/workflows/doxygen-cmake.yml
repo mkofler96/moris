@@ -25,11 +25,8 @@ jobs:
 
       - name: Configure Doxyfile for .dox files
         run: |
-          sed -i 's|^INPUT .*|INPUT = ./|' Doxyfile
           sed -i 's|^RECURSIVE .*|RECURSIVE = YES|' Doxyfile
-          sed -i 's|^FILE_PATTERNS .*|FILE_PATTERNS = *.dox|' Doxyfile
           sed -i 's|^OUTPUT_DIRECTORY .*|OUTPUT_DIRECTORY = docs_output|' Doxyfile
-          sed -i 's|^GENERATE_LATEX .*|GENERATE_LATEX = NO|' Doxyfile
 
       - name: Run Doxygen
         run: doxygen Doxyfile
