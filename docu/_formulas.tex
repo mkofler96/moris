@@ -1,0 +1,3710 @@
+\documentclass{article}
+\usepackage{ifthen}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+
+\pagestyle{empty}
+\begin{document}
+$ (x, y) = ( 2.0, 2.0 ) $
+\pagebreak
+
+$ 1.0 $
+\pagebreak
+
+$ 0.3 $
+\pagebreak
+
+$ 0.01 $
+\pagebreak
+
+$ 100.0 $
+\pagebreak
+
+$ 0.0 $
+\pagebreak
+
+$ \Delta T = T_{top} - T_{bottom}  $
+\pagebreak
+
+$ \sigma_r = \tau_{neumann} $
+\pagebreak
+
+$ r $
+\pagebreak
+
+$ (x, y) = (20 in, 1 in) $
+\pagebreak
+
+$ \epsilon_t = \frac{ T_t \alpha dx }{ dx } = T_t \alpha $
+\pagebreak
+
+$ \epsilon_b = \frac{ T_b \alpha dx }{ dx } = T_b \alpha $
+\pagebreak
+
+$ \frac{ 1 }{ \rho } = \frac{ \epsilon_{mean} }{ d } = \frac{ \alpha (T_t - T_b) }{ d } $
+\pagebreak
+
+$ \frac{ d^2 v }{ dx^2 } = \frac{ \alpha (T_t - T_b) }{ d } $
+\pagebreak
+
+$ \frac{ dv }{ dx } = \frac{ \alpha (T_t - T_b) }{ d } x $
+\pagebreak
+
+$ v(x) = \frac{ \alpha (T_t - T_b) L }{ 2 d } x^2 $
+\pagebreak
+
+$ 4 \times 2$
+\pagebreak
+
+$ 2.2 \times 0.41 $
+\pagebreak
+
+$ \PrescribedTemperature = 0 $
+\pagebreak
+
+$ \HeatFlux = 2.0 $
+\pagebreak
+
+$ 176 \times 88 $
+\pagebreak
+
+$ 0.00005 $
+\pagebreak
+
+$ 0.168 $
+\pagebreak
+
+$ T_0 = 313 $
+\pagebreak
+
+$ T_{w} = 350 $
+\pagebreak
+
+$ t_{max} = 960 $
+\pagebreak
+
+$ 20 $
+\pagebreak
+
+$ \rho = 0.75 $
+\pagebreak
+
+$ c_p = 2.4 $
+\pagebreak
+
+$ \kappa = 2.1 \cdot 10^{-7} $
+\pagebreak
+
+\[
+erf(z) = \frac{2}{\sqrt{\pi}} \int_{s=0}^z e^{-s^2} ds
+\]
+\pagebreak
+
+\[
+\alpha = \frac{\kappa}{\rho c_p}
+\]
+\pagebreak
+
+\[
+\eta(x,t) = \frac{x}{2 \sqrt{\alpha t}}
+\]
+\pagebreak
+
+$ x $
+\pagebreak
+
+$ t $
+\pagebreak
+
+$ T_0 $
+\pagebreak
+
+$ T_w $
+\pagebreak
+
+\[
+T(x,t) = T_w + (T_0 - T_w) \ erf(\eta(x,t))
+\]
+\pagebreak
+
+$ \Delta x = 0.28, \ \Delta y = 0.0005 $
+\pagebreak
+
+$ h = 5.6e-4 $
+\pagebreak
+
+$ y $
+\pagebreak
+
+$ t_{max} = 480 $
+\pagebreak
+
+$ 10 $
+\pagebreak
+
+$ L_H = 175.0 $
+\pagebreak
+
+$ T_m = 314.5 $
+\pagebreak
+
+$ \Delta T_m = 3.0 $
+\pagebreak
+
+\[
+Ste = \frac{c_p}{L_H}(T_w - T_m)
+\]
+\pagebreak
+
+$ \beta $
+\pagebreak
+
+\[
+\beta e^{\beta^2} \cdot \int_{s=0}^{\beta} e^{-s^2} \ ds = \frac{Ste}{2}
+\]
+\pagebreak
+
+\[
+T(x,t) = T_w + (T_m - T_w) \ \frac{erf(\eta(x,t))}{erf(\beta(Ste)}
+\]
+\pagebreak
+
+$ \< 350 $
+\pagebreak
+
+$ \ThermConduct $
+\pagebreak
+
+\[ \dot{\enthalpy}(\temp) = \div{(\ThermConduct \nabla T)} \]
+\pagebreak
+
+$ \dot{\enthalpy} = \frac{\partial \enthalpy}{\partial \time} $
+\pagebreak
+
+$ \nabla \cdot (\bm{\cdot}) $
+\pagebreak
+
+$ \nabla (\bm{\cdot}) $
+\pagebreak
+
+\[ 
+\int_{\domain} \TestFunc \dot{\enthalpy}(\temp) \ d\domain + \int_{\domain} \grad{\TestFunc} \cdot (\ThermConduct \grad{\temp}) \ d\domain 
+= \int_{\DomainBoundary} \TestFunc (\ThermalFlux \cdot \SurfaceNormal) \ d\BoundarySegment + \int_{\domain} \TestFunc \BodyLoad \ d\domain
+\]
+\pagebreak
+
+$ \BodyLoad $
+\pagebreak
+
+$ \ThermalFlux \cdot \bm{n} $
+\pagebreak
+
+\[ \ThermalFlux = \ThermConduct \grad{\temp} \]
+\pagebreak
+
+\[ \enthalpy(\temp) = \int_{\temp_{ref}}^{\temp}  \density \HeatCap   d\temp \]
+\pagebreak
+
+\[ \dot{\enthalpy}(\temp) = \density \HeatCap \pfrac{\temp}{\time} \]
+\pagebreak
+
+$ \PSF(\temp) $
+\pagebreak
+
+$ T $
+\pagebreak
+
+$ 0 \leq \PSF(\temp) \leq 1 $
+\pagebreak
+
+\[
+\PSF(\temp) = 
+\begin{cases}
+0 \ \ \ \ \ \ \  for  \ \temp \leq \LowerPCTemp \\
+]0,1[ \ \ \ for \ \LowerPCTemp < \temp < \UpperPCTemp \\
+1 \ \ \ \ \ \ \  for  \ \temp \geq \UpperPCTemp
+\end{cases}
+\]
+\pagebreak
+
+$ \LowerPCTemp $
+\pagebreak
+
+$ \UpperPCTemp $
+\pagebreak
+
+$ \space $
+\pagebreak
+
+$ \temp = \temp(\space) $
+\pagebreak
+
+\[ \enthalpy(T) = \int_{\temp_{ref}}^{\temp}  \density \left( \HeatCap + \LatHeat \PSF(\temp) \right)  d\temp \]
+\pagebreak
+
+$ \LowerPCTemp < \temp < \UpperPCTemp $
+\pagebreak
+
+$ \dot{\enthalpy} $
+\pagebreak
+
+\[ \dot{\enthalpy}(\temp) = \density \left( \HeatCap + \LatHeat \frac{\partial \PSF(\temp)}{\partial \temp} \right) \frac{\partial \temp}{\partial \time} \]
+\pagebreak
+
+$ \frac{\partial \PSF(\temp)}{\partial \temp} $
+\pagebreak
+
+$ \PCconst $
+\pagebreak
+
+$ \PCTemp $
+\pagebreak
+
+$ \LowerPCTemp < T < \UpperPCTemp $
+\pagebreak
+
+$  \PSF(\temp) = \frac{\temp - \LowerPCTemp}{\UpperPCTemp - \LowerPCTemp} $
+\pagebreak
+
+$ \LowerPCTemp = T_m - \frac{\PCconst}{2} $
+\pagebreak
+
+$ \UpperPCTemp = T_m + \frac{\PCconst}{2} $
+\pagebreak
+
+$  \PSF(\temp) = \frac{2\temp^3 - 3(\LowerPCTemp+\UpperPCTemp)T^2 + 6 \LowerPCTemp \UpperPCTemp T}{(\LowerPCTemp - \UpperPCTemp)^3}  $
+\pagebreak
+
+$ \LowerPCTemp = \PCTemp - \frac{\PCconst}{2} $
+\pagebreak
+
+$  \PSF(\temp) = \frac{1}{1+exp(- \PCconst (\temperature - \PCTemp))} $
+\pagebreak
+
+$ \GGLSParam $
+\pagebreak
+
+$ \tilde{w} $
+\pagebreak
+
+\[ \tilde{w} = \GGLSParameter \grad{\TestFunc}  \]
+\pagebreak
+
+\[ 
+\begin{split}
+    \ThermConduct_a &= \frac{\ElementSize^2}{6} \bar{\xi} \\
+    \bar{\xi} &= \frac{ cosh \left( \sqrt{6 \alpha} \right) + 2 }{ cosh \left( \sqrt{6 \alpha} \right) - 1 } - \frac{1}{\alpha} \\
+    \alpha &= \frac{\density \left( \HeatCap + \LatHeat \frac{\partial f}{\partial \temp} \right) h^2 }{6 \ThermConduct \Delta t}
+\end{split}
+\]
+\pagebreak
+
+\[ 
+R_{GGLS} = \int_{\domain} \grad{\TestFunc} \GGLSParameter  \grad{ \left[ \dot{\enthalpy}(T) - \nabla \cdot \ThermalFlux - \nabla Q  \right] } \ d\domain 
+\]
+\pagebreak
+
+\[ 
+\nabla (\nabla \cdot (\ThermConduct \grad{\temperature}) ) =
+
+\left[ \begin{array}{lll lll} 
+\ThermConduct & 0 & 0 & 0 & 0 & \ThermConduct & 0 & \ThermConduct & 0 & 0 \\
+0 & \ThermConduct & 0 & \ThermConduct & 0 & 0 & 0 & 0 & \ThermConduct & 0 \\
+0 & 0 & \ThermConduct & 0 & \ThermConduct & 0 & \ThermConduct & 0 & 0 & 0 \\
+\end{array} \right] \ 
+\bm{B}^{\bm{xxx}}
+\]
+\pagebreak
+
+\[ 
+\nabla (\nabla \cdot (\ThermConduct \nabla T) ) =
+
+\left[ \begin{array}{lll lll} 
+\ThermConduct & 0 & 0 & \ThermConduct \\
+0 & \ThermConduct & \ThermConduct & 0 \\
+\end{array} \right] \ 
+\bm{B}^{\bm{xxx}}
+\]
+\pagebreak
+
+$ \ThermConduct(T) $
+\pagebreak
+
+\[ 
+\bm{R}_{Bulk} =  \int_{\domain} w \dot{\enthalpy}(T) \ d\domain 
+                   + \int_{\domain} \grad{\TestFunc} \ \ThermConduct \ \nabla \temp \ d\domain 
+                   + \int_{\domain} \grad{\TestFunc} \GGLSParameter  \grad{ \left[ \dot{\enthalpy}(\temp) - \div{\ThermalFlux} - \grad{Q} \right] } \ d\domain 
+\]
+\pagebreak
+
+\[ \bm{R}_{N} = \int_{\Gamma_N} w (\ThermalFlux \cdot \SurfaceNormal) \ d\BoundarySegment \]
+\pagebreak
+
+$ \ThermalFlux \cdot \SurfaceNormal $
+\pagebreak
+
+\[ \ResidualVector_{R} = \int_{\Gamma_R} \TestFunction \ConvectionCoefficient (\temp - \AmbientTemperature) \ d\BoundarySegment \]
+\pagebreak
+
+$ \ThermalFlux \cdot \SurfaceNormal = \ConvectionCoefficient (\temp - \AmbientTemperature) $
+\pagebreak
+
+$ \ConvectionCoefficient $
+\pagebreak
+
+$ \AmbientTemperature $
+\pagebreak
+
+\[ 
+\ResidualVector_{R} = \int_{\Gamma_R} \TestFunction \emissivity \StefanBoltzmannConstant 
+\left( (\temp - \AbsoluteZero)^4 - (\AmbientTemperature - \AbsoluteZero)^4 \right) 
+\ d\BoundarySegment 
+\]
+\pagebreak
+
+$ \StefanBoltzmannConstant $
+\pagebreak
+
+$ \emissivity $
+\pagebreak
+
+$ \ThermalFlux \cdot \SurfaceNormal = \emissivity \StefanBoltzmannConstant 
+\left( (\temp - \AbsoluteZero)^4 - (\AmbientTemperature - \AbsoluteZero)^4 \right)  $
+\pagebreak
+
+$ \AbsoluteZero $
+\pagebreak
+
+$ \density $
+\pagebreak
+
+$ \HeatCap $
+\pagebreak
+
+$ \LatHeat $
+\pagebreak
+
+$ \PCTempRange $
+\pagebreak
+
+$ \ThermalFlux $
+\pagebreak
+
+$ Q $
+\pagebreak
+
+$ \sigma_{ij} = -p \delta_{ij} + 2 \mu \epsilon_{ij}( \mathbf{u} ) $
+\pagebreak
+
+$ \mu $
+\pagebreak
+
+$ \epsilon( \mathbf{u} ) = \frac{1}{2} \left( \nabla \mathbf{u} + \nabla \mathbf{u}^T \right) $
+\pagebreak
+
+$ \sigma_{t,ij} = 2 \mu_t \epsilon_{ij}( \mathbf{u} ) $
+\pagebreak
+
+$ \mu_t $
+\pagebreak
+
+$ \velocity $
+\pagebreak
+
+$ \temp $
+\pagebreak
+
+$ \domain = \SpaceDomain \times \TimeDomain $
+\pagebreak
+
+\[
+\pfrac{\density}{\time} + \div{(\density \velocity)} 
+= 0 \ \ \ in  \ \domain
+\]
+\pagebreak
+
+\[
+\pfrac{(\density \velocity)}{\time} + \div{(\density \velocity \otimes \velocity)} 
+- \div{\CauchyStress} - \density \BodyForce
+= 0 \ \ \ in  \ \domain
+\]
+\pagebreak
+
+\[
+\pfrac{\TotalEnergyDensity}{\time} 
++ \div{(\EnergyFlux - \WorkFlux)} 
++ \div{\ThermalFlux} 
+- \density \BodyForce \cdot \velocity 
+- \BodyLoad
+= 0 \ \ \ in  \ \domain
+\]
+\pagebreak
+
+$ \EnergyFlux $
+\pagebreak
+
+$ \WorkFlux $
+\pagebreak
+
+$ \EnergyFlux = \TotalEnergyDensity \velocity $
+\pagebreak
+
+$ \WorkFlux = \CauchyStress \velocity $
+\pagebreak
+
+\[
+\begin{split}
+\density(\space,\time=0) = \density_0(\space) \ \ \ on \ \SpaceDomain   \\
+\velocity(\space,\time=0) = \velocity_0(\space) \ \ \ on \ \SpaceDomain \\
+\temp(\space,\time=0) = \temp_0(\space) \ \ \ on \ \SpaceDomain
+\end{split}
+\]
+\pagebreak
+
+\[
+\grad{\density} \cdot \SurfaceNormal = 0 \ \ \ on \ \SpaceBoundary
+\]
+\pagebreak
+
+$ \pressure $
+\pagebreak
+
+\[
+\pressure(\density,\temp) = \density \GasConst \temperature 
+\]
+\pagebreak
+
+$ \GasConst $
+\pagebreak
+
+\[
+\GasConst = \frac{\UniversalGasConstant}{\MolarMass}
+\]
+\pagebreak
+
+\[
+\TotalEnergyDensity = \density \left( \SpecificInnerEnergy + \frac{\abs{\velocity}^2}{2} \right)
+\]
+\pagebreak
+
+\[
+\SpecificInnerEnergy = ( \IsobarHeatCap - \GasConst ) \temperature
+\]
+\pagebreak
+
+\[
+\ThermalFlux = - \ThermalConductivity \grad{\temp}
+\]
+\pagebreak
+
+\[
+\CauchyStress 
+= \ViscousStress - \pressure \IdentityMat 
+= \left[ 
+\DynamicViscosity \left( \grad{\velocity} + \trans{\grad{\velocity}} \right) 
++ \KinematicViscosity (\div{\velocity}) \IdentityMat
+\right] - \pressure \IdentityMat
+\]
+\pagebreak
+
+\[ \EnergyFlux = \TotalEnergyDensity \velocity \]
+\pagebreak
+
+\[ \WorkFlux = \CauchyStress \velocity \]
+\pagebreak
+
+$ \KinematicViscosity = - \frac{2}{3} \DynamicViscosity $
+\pagebreak
+
+$ \IsobarHeatCap $
+\pagebreak
+
+$ \DynamicViscosity $
+\pagebreak
+
+\[
+\LocalHelmholtzFreeEnergyDensity(\density,\temp) = 
+- \VdWconstA \density 
++ \GasConst \temp \ln{\frac{\density}{\VdWconstB - \density}}
+- \IsochorHeatCap \temp \ln{\frac{\temp}{\RefTemp}}
+- \IsochorHeatCap \temp
+\]
+\pagebreak
+
+$ \capillarity $
+\pagebreak
+
+\[
+\HelmholtzFreeEnergyDensity(\density,\temp) = \LocalHelmholtzFreeEnergyDensity(\density,\temp) 
++ \frac{\capillarity}{2 \density} \abs{\grad{\density}}^2
+\]
+\pagebreak
+
+\[
+\pressure(\density,\temp) = 
+\GasConst \VdWconstB \frac{\density \temp}{\VdWconstB - \density} 
+- \VdWconstA \density^2
+\]
+\pagebreak
+
+\[
+\TotalEnergyDensity = 
+\density \left( \SpecificInnerEnergy + \frac{\abs{\velocity}^2}{2} \right) + \frac{\capillarity}{2} \abs{\velocity}^2
+\]
+\pagebreak
+
+\[
+\SpecificInnerEnergy = \IsochorHeatCap \temp - \VdWconstA \density
+\]
+\pagebreak
+
+\[
+\ThermalFlux 
+= - \ThermalConductivity \grad{\temp} 
+\]
+\pagebreak
+
+\[
+\CauchyStress 
+= \ViscousStress + \KortewegStress - \pressure \IdentityMat 
+= \left[ 
+\DynamicViscosity \left( \grad{\velocity} + \trans{\grad{\velocity}} \right) 
++ \KinematicViscosity (\div{\velocity}) \IdentityMat
+\right] + \left[ 
+\left( \capillarity \density \laplacian{\density} 
++ \frac{\capillarity \abs{\grad{\density}}^2}{2} \right) \IdentityMat 
+- \capillarity \grad{\density} \otimes \grad{\density} 
+\right] 
+- \pressure \IdentityMat
+\]
+\pagebreak
+
+$ \KortewegStress $
+\pagebreak
+
+\[ 
+\EnergyFlux = \TotalEnergyDensity \velocity 
+\]
+\pagebreak
+
+\[ 
+\WorkFlux 
+= \CauchyStress \velocity - \InterstitialWorkFlux 
+= \CauchyStress \velocity - \left[ \capillarity \density  \left( \div{\velocity} \right) \grad{\density} \right]
+\]
+\pagebreak
+
+$ \InterstitialWorkFlux $
+\pagebreak
+
+$ \IsochorHeatCap $
+\pagebreak
+
+$ \VdWconstA $
+\pagebreak
+
+$ \VdWconstB $
+\pagebreak
+
+\[
+\int_{\domain} \DensTestFunc \dot{\density} \ d\domain 
+- \int_{\domain} \grad{\DensTestFunc} \cdot (\density \velocity) \ d\domain 
+= \Residual_{\DensTestFunc} \ShouldEqual 0 \ \ \ in  \ \domain
+\]
+\pagebreak
+
+$ \DensTestFunc $
+\pagebreak
+
+\[
+\int_{\domain} \VelTestFunc \cdot \left( \dot{\density} \velocity + \density \dot{\velocity} \right) \ d\domain 
+- \int_{\domain} \left( \density \velocity \otimes \velocity \right) \DoubleDot \grad{\VelTestFunc} \ d\domain 
++ \int_{\domain} \CauchyStress \DoubleDot \grad{\VelTestFunc} \ d\domain 
+- \int_{\domain} \VelTestFunc \cdot \density \BodyForce \ d\domain
+= \Residual_{\VelTestFunc} \ShouldEqual 0 \ \ \ in  \ \domain 
+\]
+\pagebreak
+
+$ \VelTestFunc = \trans{(\TestFunc_{ux}, \TestFunc_{uz}, \TestFunc_{uz})} $
+\pagebreak
+
+\[
+\int_{\domain} \TempTestFunc \dot{\TotalEnergyDensity} \ d\domain 
++ \int_{\domain} \grad{\TempTestFunc} \cdot \left[ \WorkFlux - \EnergyFlux
+                       - \ThermalFlux \right] \ d\domain 
++ \int_{\domain} \TempTestFunc \left[ \density \BodyForce \cdot \velocity + \BodyLoad \right] \ d\domain 
+= \Residual_{\TempTestFunc} \ShouldEqual 0 \ \ \ in  \ \domain
+\]
+\pagebreak
+
+$ \TempTestFunc $
+\pagebreak
+
+$ \BodyForce $
+\pagebreak
+
+\[
+\Residual_{B\density} = 
+\int_{\DomainBoundary} \DensTestFunc (\density \velocity \cdot \SurfaceNormal) \ d\BoundarySegment
+\]
+\pagebreak
+
+\[
+\Residual_{B\velocity} =
+\int_{\DomainBoundary} \VelTestFunc \left[ ( \density \velocity \otimes \velocity ) \cdot \SurfaceNormal \right] \ d\BoundarySegment 
++ \int_{\DomainBoundary} \VelTestFunc ( \CauchyStress \cdot \SurfaceNormal ) \ d\BoundarySegment
+\]
+\pagebreak
+
+\[
+\Residual_{B\temp} =
+\int_{\DomainBoundary} \TempTestFunc (\ThermalFlux \cdot \SurfaceNormal ) \ d\BoundarySegment 
++ \int_{\DomainBoundary} \TempTestFunc \left[ 
+( \EnergyFlux - \WorkFlux ) \cdot \SurfaceNormal \right] \ d\BoundarySegment
+\]
+\pagebreak
+
+\[
+\Residual_{BF\velocity} =
+\int_{\DomainBoundary} \VelTestFunc \left[ ( \density \velocity \otimes \velocity ) \cdot \SurfaceNormal \right] \ d\BoundarySegment 
+\]
+\pagebreak
+
+\[
+\Residual_{BF\temp} =
+\int_{\DomainBoundary} \TempTestFunc \left[ 
+ ( \EnergyFlux - \WorkFlux ) \cdot \SurfaceNormal \right] \ d\BoundarySegment
+\]
+\pagebreak
+
+\[
+\Residual_{BN\traction} =
+-\int_{\NeumannBoundary} \VelTestFunc \cdot \traction \ d\BoundarySegment
+\]
+\pagebreak
+
+$ \traction = \CauchyStress \SurfaceNormal $
+\pagebreak
+
+\[
+\Residual_{BN\MassFlux} =
+ \int_{\NeumannBoundary} \DensTestFunc \MassFlux \ d\BoundarySegment
+\]
+\pagebreak
+
+$ \MassFlux = \density \velocity \cdot \SurfaceNormal $
+\pagebreak
+
+\[
+\Residual_{BN\HeatFlux} =
+\int_{\NeumannBoundary} \TempTestFunc \HeatFlux \ d\BoundarySegment
+\]
+\pagebreak
+
+$ \HeatFlux = \ThermalFlux \cdot \SurfaceNormal $
+\pagebreak
+
+\[
+\Residual_{BD\density} = 
+\int_{\DirichletBoundary} \DensTestFunc \MassFlux \ d\BoundarySegment
+\pm \int_{\DirichletBoundary} \variation{\MassFlux} \jump{\density} d\BoundarySegment
++ \NitschePenaltyParameter \int_{\DirichletBoundary} \DensTestFunc \jump{\density} \ d\BoundarySegment
+\]
+\pagebreak
+
+$ \variation{\MassFlux} $
+\pagebreak
+
+\[ \begin{split}
+\variation{\MassFlux} 
+&= \variation{\density \velocity \cdot \SurfaceNormal} \\
+&= (\velocity \cdot \SurfaceNormal) \var{\density} + ( \density \SurfaceNormal ) \cdot \var{\velocity} \\
+&= (\velocity \cdot \SurfaceNormal) \DensTestFunc + ( \density \SurfaceNormal ) \cdot \VelTestFunc \\
+\end{split} \]
+\pagebreak
+
+\[
+\Residual_{BD\velocity} = 
+- \int_{\DirichletBoundary} \VelTestFunc \cdot \traction \ d\BoundarySegment
+\mp \int_{\DirichletBoundary} \variation{\traction} \cdot \jump{\velocity} d\BoundarySegment
+- \NitschePenaltyParameter \int_{\DirichletBoundary} \VelTestFunc \cdot \jump{\velocity} \ d\BoundarySegment
+\]
+\pagebreak
+
+$ \variation{\traction} $
+\pagebreak
+
+\[ \begin{split}
+\variation{\traction} 
+&= \pfrac{\CauchyStress \SurfaceNormal}{\density} \var{\density} 
++ \pfrac{\CauchyStress \SurfaceNormal}{\velocity} \cdot \var{\velocity}  
++ \pfrac{\CauchyStress \SurfaceNormal}{\temp} \var{\temp} \\
+&= \left[ \pfrac{\CauchyStress}{\density} \DensTestFunc 
++ \pfrac{\CauchyStress}{\velocity} \cdot \VelTestFunc  
++ \pfrac{\CauchyStress}{\temp} \TempTestFunc \right] \cdot \SurfaceNormal \\
+\end{split} \]
+\pagebreak
+
+\[
+\Residual_{BD\temp} = 
+\int_{\DirichletBoundary} \TempTestFunc \HeatFlux \ d\BoundarySegment
+\pm \int_{\DirichletBoundary} \variation{\HeatFlux} \jump{\temp} d\BoundarySegment
++ \NitschePenaltyParameter \int_{\DirichletBoundary} \TempTestFunc \jump{\temp} \ d\BoundarySegment
+\]
+\pagebreak
+
+\[ \begin{split}
+\variation{\HeatFlux} 
+&= \pfrac{\ThermalFlux \SurfaceNormal}{\temp} \var{\temp} \\ 
+&= \left[ \pfrac{\ThermalFlux}{\temp} \cdot \SurfaceNormal \right] \TempTestFunc 
+\end{split} \]
+\pagebreak
+
+\[
+R = -   \int_{\partial \Omega} \delta u        \sigma n                \: d\Omega 
+    \pm \int_{\partial \Omega} \delta \sigma   \left| u \right| \: d\Omega 
+    +   \gamma \int_{\partial \Omega} \delta u \left| u \right| \: d\Omega
+\]
+\pagebreak
+
+$ \left| u \right| $
+\pagebreak
+
+\[ 
+R = -\sum N^T t \pm \sum \hat{t} \left| u \right| + \gamma \sum N^T \left| u \right|
+\]
+\pagebreak
+
+\[ 
+\hat{n} = \begin{bmatrix}
+            n_1 &   0   &   n_2 \\
+            0   &   n_2 &   n_1
+          \end{bmatrix} 
+\]
+\pagebreak
+
+\[
+u = \begin{bmatrix}
+     u_{x_1}    &   u_{y_1} \\
+     \vdots     &   \vdots  \\
+     u_{x_4}    &   u_{y_4}
+     \end{bmatrix}  
+\]
+\pagebreak
+
+\[
+\mathcal{B} = \begin{bmatrix}
+     \frac{\partial N_1}{\partial x}    &   ... &   \frac{\partial N_4}{\partial x} \\
+     \frac{\partial N_1}{\partial y}    &   ... &   \frac{\partial N_4}{\partial y} 
+     \end{bmatrix}   
+\]
+\pagebreak
+
+\[
+-\sum N^T t
+\]
+\pagebreak
+
+$ N $
+\pagebreak
+
+\[
+N = \begin{bmatrix}
+    N_1 & ... & N_4 & 0 & ...& 0    \\
+    0   & ... & 0   & N_1 & ... & N_4 
+    \end{bmatrix}
+\]
+\pagebreak
+
+$ t = \hat{n} \sigma$
+\pagebreak
+
+$ \sigma $
+\pagebreak
+
+$ \sigma = \mathcal{C} \epsilon $
+\pagebreak
+
+$ \mathcal{C} $
+\pagebreak
+
+$ \epsilon = \mathcal{B} u $
+\pagebreak
+
+$ \mathcal{B} $
+\pagebreak
+
+$ 66\% $
+\pagebreak
+
+$ \epsilon $
+\pagebreak
+
+\[ 
+\epsilon = \begin{bmatrix} 
+            \epsilon_{11} & \epsilon_{12}   \\
+            \epsilon_{12} & \epsilon_{22}
+          \end{bmatrix}
+         \to 
+         \begin{bmatrix}
+         \epsilon_{11}  \\
+         \epsilon_{22}  \\
+         2 \epsilon_{12}
+         \end{bmatrix}
+\]
+\pagebreak
+
+$ t = \hat{n} \sigma $
+\pagebreak
+
+\[
+R = \begin{bmatrix}
+    R_{x_1} \\
+    \vdots  \\
+    R_{x_4} \\
+    R_{y_1} \\
+    \vdots  \\
+    R_{y_4}
+    \end{bmatrix}   
+\]
+\pagebreak
+
+\[
+\sum \hat{t} \left| u \right|
+\]
+\pagebreak
+
+$ \hat{t} = B^T \mathcal{C} \hat{n}^T $
+\pagebreak
+
+$ B $
+\pagebreak
+
+\[
+B = \begin{bmatrix}
+    \frac{\partial N_1}{\partial x} &   0   &   \frac{\partial N_2}{\partial x} & 0 & ... & \frac{\partial N_4}{\partial x} &   0   \\
+    0 & \frac{\partial N_1}{\partial y} &   0   &   \frac{\partial N_2}{\partial y} & ... & 0   &   \frac{\partial N_4}{\partial y} \\
+    \frac{\partial N_1}{\partial y} &   \frac{\partial N_1}{\partial x} &   \frac{\partial N_2}{\partial y} &   \frac{\partial N_2}{\partial x} &   ... &   \frac{\partial N_4}{\partial y} &   \frac{\partial N_4}{\partial x}
+    \end{bmatrix}
+\]
+\pagebreak
+
+$ \hat{t} $
+\pagebreak
+
+\[
+\gamma \sum N^T \left| u \right|
+\]
+\pagebreak
+
+$ \gamma $
+\pagebreak
+
+$ \epsilon = \mathcal{B} u \;\; \mbox{reshape of }\epsilon $
+\pagebreak
+
+$ \left| u \right| \mbox{(jump operator)} $
+\pagebreak
+
+$ \mbox{Term 01: } \sum N^T t $
+\pagebreak
+
+$ \mbox{Term 02: } \sum \hat{t} \left| u \right| $
+\pagebreak
+
+$ \mbox{Term 03: } \gamma \sum N^T \left| u \right| $
+\pagebreak
+
+$ \mathcal{I} $
+\pagebreak
+
+\[
+-\sum N^T t \to -\sum N^T \mathcal{I} t
+\]
+\pagebreak
+
+\[
+\mathcal{I} = \begin{bmatrix}
+                0   &   0   \\
+                0   &   1
+              \end{bmatrix}
+\]
+\pagebreak
+
+\[
+\mbox{Term 01} = \begin{bmatrix}
+                 N_1        &   0       \\
+                 \vdots &   \vdots  \\
+                 N_4        &   0       \\
+                 0      &   N_1     \\
+                 \vdots &   \vdots  \\
+                 0      &   N_4
+                 \end{bmatrix}
+                 \begin{bmatrix}
+                 0  &   0   \\
+                 0  &   1   
+                 \end{bmatrix}
+                 \begin{bmatrix}
+                 t_1    \\
+                 t_2
+                 \end{bmatrix}
+                 =
+                 \begin{bmatrix}
+                 0  \\
+                 \vdots \\
+                 0  \\
+                 R_{y_1}    \\
+                 \vdots \\
+                 R_{y_4}
+                 \end{bmatrix}  
+\]
+\pagebreak
+
+\[
+\mathbf{R_e} \left( \mathbf{u}_e  \right) = \int_{\Omega_e \times T_e} \mathbf{r}_e \left( 
+\mathbf{u} \left( \mathbf{u}_e  \right), \mathbf{u}^{\prime} \left( \mathbf{u}_e  \right), 
+\mathbf{u}^{\prime\prime} \left( \mathbf{u}_e  \right), \cdots, 
+\mathbf{\dot u} \left( \mathbf{u}_e  \right),\mathbf{\ddot u} \left( \mathbf{u}_e  \right),
+\cdots,
+\mathbf{\dot u}^{\prime} \left( \mathbf{u}_e  \right), \mathbf{\ddot u}^{\prime} \left( \mathbf{u}_e  \right), \cdots
+\right) \mathrm{d} V \, \mathrm{d}t
+\]
+\pagebreak
+
+$ \mathbf{r_e} $
+\pagebreak
+
+$ \Omega_e $
+\pagebreak
+
+$ T_e $
+\pagebreak
+
+$ \mathbf{u} $
+\pagebreak
+
+$ \mathbf{u}^{\prime} $
+\pagebreak
+
+$ \mathbf{u}^{\prime\prime} $
+\pagebreak
+
+$ \mathbf{\dot u} $
+\pagebreak
+
+$ \mathbf{\ddot u}$
+\pagebreak
+
+$ \mathbf{\dot u}^{\prime} $
+\pagebreak
+
+$ \mathbf{u}_e $
+\pagebreak
+
+\[
+\frac{\partial  \mathbf{r_e} }{\partial \mathbf{u}}, \frac{\partial  \mathbf{r_e} }{\partial  \mathbf{u}^{\prime}},
+\frac{\partial  \mathbf{r_e} }{\partial  \mathbf{u}^{\prime\prime}},
+\cdots,  \frac{\partial \mathbf{r_e} }{\partial  \mathbf{\dot u}}, \frac{\partial \mathbf{r_e} }{\partial  \mathbf{\ddot u}},
+\cdots, \frac{\partial  \mathbf{r_e} }{\partial  \mathbf{\dot u}^{\prime}}, \cdots
+\]
+\pagebreak
+
+$ \mathbf{R}_e $
+\pagebreak
+
+\[
+\frac{\partial  \mathbf{R_e} }{\partial \mathbf{u}_e} = \int_{\Omega_e \times T_e} \left(
+\frac{\partial  \mathbf{r_e} }{\partial \mathbf{u}} \, \frac{\partial  \mathbf{u} }{\partial \mathbf{u}_e}
++ \frac{\partial  \mathbf{r_e} }{\partial \mathbf{u}^{\prime}} \, \frac{\partial  \mathbf{u}^{\prime} }{\partial \mathbf{u}_e}
++ \frac{\partial  \mathbf{r_e} }{\partial \mathbf{u}^{\prime\prime}} \, \frac{\partial  \mathbf{u}^{\prime\prime} }{\partial \mathbf{u}_e}
++ \cdots + \frac{\partial  \mathbf{r_e} }{\partial \mathbf{\dot u}} \, \frac{\partial  \mathbf{\dot u}}{\partial \mathbf{u}_e}
++ \frac{\partial  \mathbf{r_e} }{\partial \mathbf{\ddot u}} \, \frac{\partial  \mathbf{\ddot u}}{\partial \mathbf{u}_e}
++ \cdots + \frac{\partial  \mathbf{r_e} }{\partial \mathbf{\dot u}^{\prime}} \, \frac{\partial  \mathbf{\dot u}^{\prime}}{\partial \mathbf{u}_e}
++ \cdots \right) \mathrm{d} V \, \mathrm{d}t
+\]
+\pagebreak
+
+$u_x, T, ...$
+\pagebreak
+
+$ N_{eqn} $
+\pagebreak
+
+$ \mathbf{R}_e \in \mathbb{R}^{N_{eqn}} $
+\pagebreak
+
+$ \mathbb{C}^{N_{eqn}} $
+\pagebreak
+
+$ \mathbf{J}_e = \partial \mathbf{R}_e/ \partial \mathbf{u}_e \in \mathbb{R}^{N_{eqn} \times N_{eqn}} $
+\pagebreak
+
+$ \mathbb{C}^{N_{eqn} \times N_{eqn}} $
+\pagebreak
+
+$ \partial \mathbf{R}_e/ \partial \textbf{p}_e \in \mathbb{R}^{N_{eqn} \times N_{p}} $
+\pagebreak
+
+$ \mathbb{C}^{N_{eqn} \times N_{p}} $
+\pagebreak
+
+$R_i$
+\pagebreak
+
+$u_j,\ j=1,\dots N_{u}$
+\pagebreak
+
+$p_l,  l=1,\dots N_{p}$
+\pagebreak
+
+\[R_i = R_i(u_j, p_l)\,.\]
+\pagebreak
+
+$a_k$
+\pagebreak
+
+$k= 1, \dots, N_{a}$
+\pagebreak
+
+$s_m$
+\pagebreak
+
+$m= 1, \dots, N_{s}$
+\pagebreak
+
+$u_j = u_j(a_k),\ p_l = p_l(s_m)$
+\pagebreak
+
+$d$
+\pagebreak
+
+\[\frac{\partial u_j}{\partial x_i},  \frac{\partial^2 u_j}{\partial x_i^2}, \dots, \frac{\partial^d u_j}{\partial x_i^d} 
+\quad \mbox{and} \quad
+\frac{\partial u_j}{\partial t}, \frac{\partial^2 u_j}{\partial t^2}, \dots, \frac{\partial^d u_j}{\partial t^d},
+\quad \mbox{and} \quad
+\frac{\partial^2 u_j}{\partial x_i \partial t}, \dots\,,\]
+\pagebreak
+
+$u_j$
+\pagebreak
+
+\[\frac{\partial u}{\partial u_j}, \frac{\partial u^{\prime}}{\partial u_j}, \frac{\partial u^{\prime\prime}}{\partial u_j}, \dots \frac{\partial \dot{u}}{\partial u_j}, \frac{\partial \ddot{u}}{\partial u_j} \dots,\]
+\pagebreak
+
+$u^{\prime} = \frac{\partial u}{\partial u_j}, u^{\prime \prime} = \frac{\partial^2 u_j}{\partial x_i^2}$
+\pagebreak
+
+$\dot{u} = \frac{\partial \dot{u}}{\partial u_j}, \ddot{u} = \frac{\partial \ddot{u}}{\partial u_j}, \dots \,.$
+\pagebreak
+
+$Q_e = \Omega_e \times T_e$
+\pagebreak
+
+$x \in \Omega_e,\ t \in T_e = [ t^n_+, t^{n+1}_- ]$
+\pagebreak
+
+\[u(x, t), \frac{\partial u(x, t)}{\partial x},  \frac{\partial^2 u(x, t)}{\partial x^2}, \dots \frac{\partial u(x, t)}{\partial t}, \frac{\partial^2 u(x, t)}{\partial t^2},\dots \,.\]
+\pagebreak
+
+$ R_i $
+\pagebreak
+
+\[R_i = \int_{Q_e} r_i \left(u, \frac{\partial u}{\partial x}, \frac{\partial^2 u}{\partial x^2}, \dots, \frac{\partial u}{\partial t}, \frac{\partial^2 u}{\partial t^2}, \dots \right)\ dQ\,.\]
+\pagebreak
+
+$r_i$
+\pagebreak
+
+\[\frac{\partial r_i}{\partial u}, \frac{\partial r_i}{\partial u^{\prime}}, \frac{\partial r_i}{\partial u^{\prime \prime}}, \dots \frac{\partial r_i}{\partial \dot{u}}, \frac{\partial r_i}{\partial \ddot{u}} \dots\,.\]
+\pagebreak
+
+\[\frac{\partial r_i}{\partial u_j} =  
+ \frac{\partial r_i}{\partial u} \frac{\partial u}{\partial u_j} 
++ \frac{\partial r_i}{\partial u^{\prime}} \frac{\partial u^{\prime}}{\partial u_j} 
++ \frac{\partial r_i}{\partial u^{\prime \prime}} \frac{\partial u^{\prime \prime}}{\partial u_j} 
++ \dots
++ \frac{\partial r_i}{\partial \dot{u}} \frac{\partial \dot{u}}{\partial u_j}
++ \frac{\partial r_i}{\partial \ddot{u}} \frac{\partial \ddot{u}}{\partial u_j}   
++ \dots
++ \frac{\partial r_i}{\partial \dot{u}^{\prime}} \frac{\partial \dot{u}^{\prime}}{\partial u_j}
++ \dots\,.\]
+\pagebreak
+
+\[\frac{\partial R_i}{\partial u_j} = \int_{Q_e} \frac{\partial r_i}{\partial u_j} \ dQ\,.\]
+\pagebreak
+
+\[\frac{\partial r_i}{\partial p} \frac{\partial p}{\partial p_l}\,.\]
+\pagebreak
+
+\[\frac{\partial r_i}{\partial p_l} = \frac{\partial r_i}{\partial p} \frac{\partial p}{\partial p_l}\,.\]
+\pagebreak
+
+\[\frac{\partial R_i}{\partial p_l} = \int_{Q_e} \frac{\partial r_i}{\partial p_l} \ dQ\,.\]
+\pagebreak
+
+\[
+\begin{array}{lll}
+\mathbf{R}_{T} & = & \displaystyle
+  \bigg( \theta,\ \frac{\partial h}{\partial t} \bigg)_{\Omega}
++ \bigg( \theta,\  \mathbf{u} \cdot \nabla h \bigg)_{\Omega}
++ \bigg( \nabla \theta,\  \mathbf{q}_{div} \bigg)_{\Omega}
+- \bigg( \theta,\ \mathbf{b}\bigg)_{\Omega}
+- \bigg( \theta,\ \mathbf{Q}\bigg)_{\Gamma_N}  
+\end{array}
+\]
+\pagebreak
+
+$ h $
+\pagebreak
+
+$ \theta $
+\pagebreak
+
+$ \mathbf{q}_{div} $
+\pagebreak
+
+$ \mathbf{b} $
+\pagebreak
+
+$ \mathbf{Q} $
+\pagebreak
+
+$ \Gamma_N $
+\pagebreak
+
+\[
+\begin{eqnarray}
+\frac{\partial h}{\partial t} & = & \rho \bigg( c_p + L_h \frac{\partial f}{\partial T} \bigg) \frac{\partial T}{\partial t} \\
+\nabla h                 & = & \rho \bigg( c_p + L_h \frac{\partial f}{\partial T} \bigg) \nabla T \\
+\mathbf{q}_{div}         & = & \kappa \nabla T
+\end{eqnarray}
+\]
+\pagebreak
+
+$ \rho $
+\pagebreak
+
+$ c_p $
+\pagebreak
+
+$ L_h $
+\pagebreak
+
+$ f $
+\pagebreak
+
+$ \kappa $
+\pagebreak
+
+\[
+\begin{array}{lll}
+\mathbf{R}_{T}^{SUPG} & = & \displaystyle \sum_{ele} {
+ \bigg( \mathbf{u} \nabla \theta,\ \tau_{T} \  r_T \bigg)_{\Omega_ele}}\\[15pt]
+ 
+ r_T & = & \displaystyle  \frac{\partial h}{\partial t} + \mathbf{u}\ \nabla h  - \nabla \cdot \mathbf{q}_{div} \\[15pt] 
+ 
+ \tau_T & = & \displaystyle \bigg( \frac{1}{\tau_1^2} + \frac{1}{\tau_2^2} + \frac{1}{\tau_3^2} \bigg)^{-1/2} 
+\end{array}
+\]
+\pagebreak
+
+\[ 
+\begin{array}{lll}
+ \tau_1  = \frac{h_e}{2\ \| \mathbf{u} \|} & \textrm{or} &  \tau_1^{-1}  = \frac{2\ \| \mathbf{u} \|}{h_e} \\
+ \tau_2  = \frac{\Delta t}{2}              & \textrm{or} &  \tau_2^{-1}  = \frac{2}{\Delta t}               \\
+ \tau_3  = \frac{h_e^2}{4 \tilde{\kappa}}  & \textrm{or} &  \tau_3^{-1}  = \frac{4 \tilde{\kappa}}{h_e^2}
+\end{array}
+\]
+\pagebreak
+
+$ h_e $
+\pagebreak
+
+\[  h_e =  2\ || \mathbf{u} ||\ \bigg( \sum_a l \mathbf{u} \nabla N_a l \bigg)^{-1} \]
+\pagebreak
+
+$ \tilde{\kappa} $
+\pagebreak
+
+\[ \tilde{\kappa} = \frac{\kappa}{ \rho \bigg( c_p + L_h \frac{\partial T}{\partial t} \bigg) } \]
+\pagebreak
+
+\[
+\begin{array}{lll}
+\mathbf{R}_{T}^{\Gamma_{D}} & = & \displaystyle
+- \bigg( [[\theta]],\ ( \kappa\ \nabla T ) \cdot \mathbf{n}  \bigg)_{\Gamma_{D}}
++ \beta \bigg( ( \kappa\ \nabla \theta ) \cdot \mathbf{n},\ ( T - \overline{T} ) \bigg)_{\Gamma_{D}}
++ \bigg( \gamma_N\ [[ \theta ]],\ ( T - \overline{T} ) \bigg)_{\Gamma_{D}}
+\end{array}
+\]
+\pagebreak
+
+$ \beta = 1 $
+\pagebreak
+
+$ \beta = -1 $
+\pagebreak
+
+$ \gamma_N $
+\pagebreak
+
+$ \overline{T} $
+\pagebreak
+
+\[
+\begin{array}{lll}
+\mathbf{R}_{T}^{\Gamma_{ifc}} & = & \displaystyle
+- \bigg( [[\theta]],\ \{( \kappa\ \nabla T ) \cdot \mathbf{n} \} \bigg)_{\Gamma_{ifc}}
++ \beta \bigg( \{ ( \kappa\ \nabla \theta ) \cdot \mathbf{n} \},\ [[T]] \bigg)_{\Gamma_{ifc}}
++ \bigg( \gamma_N\ [[ \theta ]],\ [[ T ]] \bigg)_{\Gamma_{ifc}}
+\end{array}
+\]
+\pagebreak
+
+$ [[ \bullet ]] $
+\pagebreak
+
+$ [[ \bullet ]]  = \bullet_M - \bullet_S $
+\pagebreak
+
+$ \{ \bullet \} $
+\pagebreak
+
+$ \{ \bullet \}  = ( w_M\ \bullet_M + w_S\ \bullet_S ) $
+\pagebreak
+
+$ w_M $
+\pagebreak
+
+$ w_S $
+\pagebreak
+
+\[
+\begin{array}{lll}
+\mathbf{R}_{T}^{GP} & = & \displaystyle
+\sum_{F} \sum_{i} \int_{F} \gamma_{\kappa}^{GP} [[ \frac{\partial^i \theta }{\partial \mathbf{x}^i} \cdot \mathbf{n} ]] 
+: [[ \frac{\partial^i T}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]]\ d\Gamma
+\end{array}
+\]
+\pagebreak
+
+$ \mathbf{R}_{T}^{GP} $
+\pagebreak
+
+$ \gamma_{\kappa}^{GP} $
+\pagebreak
+
+$
+\begin{array}{l}
+\displaystyle
+\rho \frac{\partial \mathbf{u}}{\partial t} 
++ \rho \mathbf{u} \cdot \nabla \mathbf{u} + \left( { S + b } \right) \mathbf{u} 
+= \nabla \cdot \left[ \boldsymbol{\sigma}(\mathbf{u}, p) 
++ \boldsymbol{\sigma}_t( \mathbf{u}, \tilde{\nu}) \right] 
++ \rho \mathbf{g}\\\\[15pt]
+
+\displaystyle
+\nabla \cdot \mathbf{u} - S / \rho= 0
+\end{array}
+$
+\pagebreak
+
+$ p $
+\pagebreak
+
+$ \tilde{\nu} $
+\pagebreak
+
+$ \boldsymbol{\sigma}(\mathbf{u}, p) $
+\pagebreak
+
+$ \boldsymbol{\sigma}_t(\mathbf{u}, \tilde{\nu}) $
+\pagebreak
+
+$ S $
+\pagebreak
+
+$ b $
+\pagebreak
+
+$ b=\mu/p_{rm} $
+\pagebreak
+
+$ p_{rm} $
+\pagebreak
+
+$
+\begin{array}{lll}
+\mathbf{R}_{u} & = & \displaystyle
+  \bigg( \mathbf{v},\ \rho \frac{\partial \mathbf{u}}{\partial t} \bigg)_{\Omega}
++ \bigg( \mathbf{v},\ \rho \mathbf{u} \cdot \nabla \mathbf{u} \bigg)_{\Omega}
++ \bigg( \boldsymbol{\varepsilon}( \mathbf{v} ),\ \boldsymbol{\sigma}( \mathbf{u}, p) \bigg)_{\Omega}
++ \bigg( \boldsymbol{\varepsilon}( \mathbf{v} ),\ \boldsymbol{\sigma}_t( \mathbf{u}, \tilde{\nu}) \bigg)_{\Omega}
++ \bigg( \mathbf{v},\ \left( { S + b } \right) \mathbf{u} \bigg)_{\Omega}
+- \bigg( \mathbf{v},\ \rho \mathbf{g}\bigg)_{\Omega}
+- \bigg( \mathbf{v},\ \mathbf{h} \bigg)_{\Gamma_N}\\[15pt]
+
+\mathbf{R}_{p} & = & \displaystyle
+\bigg( q,\ \nabla \cdot \mathbf{u} - S / \rho \bigg)_{\Omega}
+\end{array}
+$
+\pagebreak
+
+$ \mathbf{v} $
+\pagebreak
+
+$ q $
+\pagebreak
+
+$
+\begin{array}{lll}
+\mathbf{R}_{u}^{SUPG} & = & \displaystyle
+\bigg( \rho \mathbf{u} \cdot \nabla\mathbf{v},\ \tau_{M} \mathbf{r}_{M}\bigg)_{\Omega}
++ \bigg( \nabla \cdot \mathbf{v},\ \tau_{C} \mathbf{r}_{C} \bigg)_{\Omega}\\[15pt]
+
+\mathbf{R}_{p}^{PSPG} & = & \displaystyle
+\bigg( \nabla q,\ \tau_{M} \mathbf{r}_{M} \bigg)_{\Omega}
+\end{array}
+$
+\pagebreak
+
+$
+\begin{array}{lll}
+\mathbf{r}_{M} & = & \displaystyle
+\rho \frac{\partial \mathbf{u}}{\partial t} 
++ \rho \mathbf{u} \cdot \nabla \mathbf{u} 
+- \nabla \cdot \left[ \boldsymbol{\sigma}(\mathbf{u}, p) 
++ \boldsymbol{\sigma}_t( \mathbf{u}, \tilde{\nu}) \right] 
++ \left( { S + b } \right) \mathbf{u} 
+- \rho \mathbf{g}\\[15pt]
+
+\mathbf{r}_{C} & = & \displaystyle
+\nabla \cdot \mathbf{u} - S / \rho
+
+\end{array}
+$
+\pagebreak
+
+$ \mathbf{R}_{u} $
+\pagebreak
+
+$ \mathbf{R}_{p} $
+\pagebreak
+
+$ \tau_{M}, \tau_{C} $
+\pagebreak
+
+$
+\begin{array}{lll}
+\mathbf{R}_{u}^{D} & = & \displaystyle
+- \bigg( \mathbf{v},\ \boldsymbol{\sigma}(\mathbf{u}, p) \cdot \mathbf{n} \bigg)_{\Gamma_D}
+- \bigg( \mathbf{v},\ \boldsymbol{\sigma}_t(\mathbf{u}, \tilde{\nu}) \cdot \mathbf{n} \bigg)_{\Gamma_D}
+- \beta \bigg( 2 \mu \boldsymbol{\varepsilon}(\mathbf{v}) \cdot \mathbf{n},\ \mathbf{u} - \overline{\mathbf{u}} \bigg)_{\Gamma_D}
+- \beta \bigg( 2 \mu_t(\tilde{\nu}) \boldsymbol{\varepsilon}(\mathbf{v}) \cdot \mathbf{n},\ \mathbf{u} - \overline{\mathbf{u}} \bigg)_{\Gamma_D}
+- \gamma_{up} \bigg( \mathbf{v}, ( \mathbf{u} \cdot \mathbf{n} ) ( \mathbf{u} - \overline{\mathbf{u}} ) \bigg)_{\Gamma_D}
++ \bigg( \gamma_N\ \mathbf{v},\ \mathbf{u} - \overline{\mathbf{u}} \bigg)_{\Gamma_D}\\[15pt]
+
+\mathbf{R}_{p}^{D} & = & \displaystyle
+- \beta\ \bigg( -q \cdot \mathbf{n},\ \mathbf{u} - \overline{\mathbf{u}} \bigg)_{\Gamma_D},
+\end{array}
+$
+\pagebreak
+
+$ \mathbf{R}_{u}^{D} $
+\pagebreak
+
+$ \mathbf{R}_{p}^{D} $
+\pagebreak
+
+\[
+\begin{array}{lll}
+\mathbf{R}_{u}^{\Gamma_{ifc}} & = & \displaystyle
+- \bigg( [[\mathbf{v}]],\ \{\boldsymbol{\sigma}(\mathbf{u}, p) \cdot \mathbf{n} \} \bigg)_{\Gamma_{ifc}}
+- \bigg( [[\mathbf{v}]],\ \{\boldsymbol{\sigma}_t(\mathbf{u}, \tilde{\nu}) \cdot \mathbf{n} \} \bigg)_{\Gamma_{ifc}}
+- \beta \bigg( \{2 \mu \boldsymbol{\varepsilon}(\mathbf{v}) \cdot \mathbf{n} \},\ [[\mathbf{u}]] \bigg)_{\Gamma_{ifc}}
+- \beta \bigg( \{2 \mu_t(\tilde{\nu}) \boldsymbol{\varepsilon}(\mathbf{v}) \cdot \mathbf{n} \},\ [[\mathbf{u}]] \bigg)_{\Gamma_{ifc}}
++ \bigg( \gamma_N\ [[\mathbf{v}]],\ [[\mathbf{u}]] \bigg)_{\Gamma_{ifc}}\\[15pt]
+
+\mathbf{R}_{p}^{\Gamma_{ifc}} & = & \displaystyle
+- \beta \bigg( \{ -q \cdot \mathbf{n} \},\ [[\mathbf{u}]] \bigg)_{\Gamma_{ifc}},
+
+\end{array}
+\]
+\pagebreak
+
+$ \mathbf{R}_{u}^{\Gamma_{ifc}} $
+\pagebreak
+
+\[
+\begin{array}{lll}
+\mathbf{R}_{\mu}^{GP} & = & \displaystyle
+\sum_{F} \sum_{i} \int_{F} \gamma_{\mu}^{GP} [[ \frac{\partial^i \mathbf{v}}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]] 
+: [[ \frac{\partial^i \mathbf{u}}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]]\ d\Gamma\\[15pt]
+
+\mathbf{R}_{p}^{GP} & = & \displaystyle
+\sum_{F} \sum_{i} \int_{F} \gamma_{p}^{GP} [[ \frac{\partial^i q}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]] 
+: [[ \frac{\partial^i p}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]]\ d\Gamma\\[15pt]
+
+\mathbf{R}_{u}^{GP} & = & \displaystyle
+\sum_{F} \int_{F} \gamma_{u}^{GP} [[ \frac{\partial \mathbf{v}}{\partial \mathbf{x}} ]] 
+: [[ \frac{\partial \mathbf{u}}{\partial \mathbf{x}} ]]\ d\Gamma\\[15pt]
+
+\mathbf{R}_{t}^{GP} & = & \displaystyle
+\sum_{F} \sum_{i} \int_{F} \gamma_{t}^{GP} [[ \frac{\partial^i \mathbf{v}}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]] 
+: [[ \frac{\partial^i \mathbf{u}}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]]\ d\Gamma\\
+
+\end{array}
+\]
+\pagebreak
+
+$ \mathbf{R}_{\mu}^{GP} $
+\pagebreak
+
+$ \gamma_{\mu}^{GP} $
+\pagebreak
+
+$ \mathbf{R}_{p}^{GP} $
+\pagebreak
+
+$ \mathbf{R}_{u}^{GP} $
+\pagebreak
+
+$ \gamma_{u}^{GP} $
+\pagebreak
+
+$ \mathbf{R}_{t}^{GP} $
+\pagebreak
+
+$ \gamma_{t}^{GP} $
+\pagebreak
+
+$
+\displaystyle
+\frac{\partial \tilde{\nu}}{\partial t} 
++ \tilde{\mathbf{u}} \cdot \nabla \tilde{\nu} 
+= P
+- D
++ \left[ \nabla \cdot \bigg( K\ \nabla \tilde{\nu} \bigg) \right]
+$
+\pagebreak
+
+$ \tilde{\mathbf{u}} $
+\pagebreak
+
+$ \tilde{\mathbf{u}} = \mathbf{u} - c_{b2}\ \nabla \tilde{\nu} / \sigma $
+\pagebreak
+
+$ P $
+\pagebreak
+
+$ P = c_{b1}\ (1-f_{t2})\ \tilde{S}\ \tilde{\nu} $
+\pagebreak
+
+$ D $
+\pagebreak
+
+$ D = \left[ c_{w1}\ f_{w} - \frac{c_{b1}}{\kappa^2} f_{t2} \right] \bigg( \frac{\tilde{\nu}}{d} \bigg)^2 $
+\pagebreak
+
+$ K $
+\pagebreak
+
+$ K = ( \nu + \tilde{\nu} ) / \sigma $
+\pagebreak
+
+$ f_{t2} = c_{t3} \exp(-c_{t4} \chi^2)$
+\pagebreak
+
+$\chi = \frac{\tilde{\nu}}{\nu} $
+\pagebreak
+
+$ c_{t3} = 1.2$
+\pagebreak
+
+$c_{t4} = 0.5 $
+\pagebreak
+
+$ c_{b1} = 0.1355 $
+\pagebreak
+
+$ c_{b2} = 0.622 $
+\pagebreak
+
+$ \sigma = 2/3 $
+\pagebreak
+
+$ \kappa = 0.41 $
+\pagebreak
+
+$ f_{w}  =  g \left[ \frac{1+c_{w3}^6}{g^6 + c_{w3}^3} \right] $
+\pagebreak
+
+$ g = r + c_{w2} (r^6 - r) $
+\pagebreak
+
+$ r = \min \left[\frac{\tilde{\nu}}{\tilde{S} \kappa^2 d^2}, 10.0 \right] $
+\pagebreak
+
+$ c_{w1} = c_{b1}/\kappa^2 + (1+c_{b2})/\sigma $
+\pagebreak
+
+$ c_{w2} = 0.3 $
+\pagebreak
+
+$ c_{w3} = 2 $
+\pagebreak
+
+$ \tilde{S} $
+\pagebreak
+
+$ 0.3 S $
+\pagebreak
+
+$ f_{v2} $
+\pagebreak
+
+$
+\displaystyle
+\tilde{S} = \left\{
+\begin{array}{ll}
+S + \overline{S} & \mbox{if}\ \overline{S} \geq -c_{v2} S \\
+S + \frac{S \left( c_{v2}^2 S + c_{v3} \overline{S} \right)}{\left( c_{v3} - 2 c_{v2} \right) S - \overline{S}}& \mbox{if}\ \overline{S} < -c_{v2} S
+\end{array}
+\right.
+$
+\pagebreak
+
+$ S = \sqrt{2 W_{ij} W_{ij}} $
+\pagebreak
+
+$ W_{ij} = \frac{1}{2} \left( \frac{\partial v_i}{\partial x_j} - \frac{\partial v_j}{\partial x_i} \right) $
+\pagebreak
+
+$ \overline{S} = \frac{\tilde{\nu}}{\kappa^2 d^2} f_{v2} $
+\pagebreak
+
+$ f_{v2} = 1 - \frac{\chi}{1+\chi f_{v1}}$
+\pagebreak
+
+$ f_{v1} = \frac{\chi^3}{\chi^3 + c_{v1}^3} $
+\pagebreak
+
+$ c_{v1} = 7.1 $
+\pagebreak
+
+$ c_{v2} = 0.7 $
+\pagebreak
+
+$ c_{v3} = 0.9 $
+\pagebreak
+
+$ \tilde{\nu } $
+\pagebreak
+
+$ \mu_{t} = 0 $
+\pagebreak
+
+$ C^1$
+\pagebreak
+
+$ \tilde{\nu } = 0 $
+\pagebreak
+
+$ P = c_{b1}\ (1-c_{t3})\ S\ \tilde{\nu} $
+\pagebreak
+
+$ D = - c_{w1} \bigg( \frac{\tilde{\nu}}{d} \bigg)^2 $
+\pagebreak
+
+$ K = ( \nu + \tilde{\nu} f_{n} ) / \sigma $
+\pagebreak
+
+$ f_{n} = \frac{c_{n1} + \chi^3}{c_{n1} - \chi^3} $
+\pagebreak
+
+$ c_{n1} = 16 $
+\pagebreak
+
+$
+\displaystyle
+\frac{\partial \tilde{\nu}}{\partial t} 
++ \mathbf{a} \cdot \nabla \tilde{\nu} 
+= \nabla \cdot \left( \kappa\ \nabla \tilde{\nu} \right) 
++ s\ \tilde{\nu}
+$
+\pagebreak
+
+$
+\displaystyle
+\frac{\partial \tilde{\nu}}{\partial t} 
++ \left( \mathbf{u} - \frac{c_{b2}}{\sigma}\ \nabla \tilde{\nu} \right) \cdot \nabla \tilde{\nu}  
+= \frac{1}{\sigma} \nabla \cdot \left[ ( \nu + \tilde{\nu} )\ \nabla \tilde{\nu} \right]
++\left[ c_{b1}\ (1-f_{t2})\ \tilde{S} - \left( c_{w1}\ f_{w} - \frac{c_{b1}}{\kappa^2} f_{t2} \right) \frac{\tilde{\nu}}{d^2} \right] \tilde{\nu}
+$
+\pagebreak
+
+$
+\begin{array}{lll}
+\mathbf{a} & = & \displaystyle \mathbf{u} - \frac{c_{b2}}{\sigma} \nabla \tilde{\nu},\\
+\kappa & = & \displaystyle \frac{\nu + \tilde{\nu}}{\sigma},\\
+s & = & \displaystyle c_{b1} \left( 1 - f_{t2} \right) \tilde{S} - \left( c_{w1} f_w - \frac{c_{b1}}{\kappa^2} f_{t2} \right) \frac{\tilde{v}}{d^2} 
+\end{array}
+$
+\pagebreak
+
+$
+\displaystyle 
+R_{\tilde{\nu}} = \bigg( w,\ \frac{\partial \tilde{\nu}}{\partial t} \bigg)_{\Omega} 
++ \bigg( w,\ \left[ \mathbf{u} - \frac{c_{b2}}{\sigma} \nabla \tilde{\nu} \right] \cdot \nabla \tilde{\nu} \bigg)_{\Omega}
++ \bigg( \nabla w,\ \frac{1}{\sigma} \left[ ( \nu + \tilde{\nu} )\ \nabla \tilde{\nu} \right] \bigg)_{\Omega}
+- \bigg( w,\ \left[ c_{b1}\ (1-f_{t2})\ \tilde{S} - \left( c_{w1}\ f_{w} - \frac{c_{b1}}{\kappa^2} f_{t2} \right) \frac{\tilde{\nu}}{d^2} \right] \tilde{\nu} \bigg)_{\Omega}  
+$
+\pagebreak
+
+$
+\begin{array}{lll}
+R_{\tilde{\nu}}^{SUPG} & = & 
+\displaystyle \bigg( \left[ \mathbf{u} - \frac{c_{b2}}{\sigma} \nabla \tilde{\nu} \right] \cdot \nabla w,\ \tau_{\tilde{\nu}}\ r_{\tilde{\nu}} \bigg)_{\Omega}\\[15pt]
+
+r_{\tilde{\nu}} & = &
+\displaystyle \frac{\partial \tilde{\nu}}{\partial t} 
++ \left( \mathbf{u} - \frac{c_{b2}}{\sigma}\ \nabla \tilde{\nu} \right) \cdot \nabla \tilde{\nu} 
+- \frac{1}{\sigma} \nabla \cdot \left[ ( \nu + \tilde{\nu} )\ \nabla \tilde{\nu} \right] 
+- \left[ c_{b1}\ (1-f_{t2})\ \tilde{S} - \left( c_{w1}\ f_{w} - \frac{c_{b1}}{\kappa^2} f_{t2} \right) \frac{\tilde{\nu}}{d^2} \right] \tilde{\nu}\\[15pt]
+
+\tau_{\tilde{\nu}} & = & 
+\displaystyle \left[ \left(\frac{2\ || \mathbf{a} ||}{h} \right)^2 + \left( \frac{4 \kappa}{h^2} \right)^2 + \left( s \right)^2 \right]^{-1/2}\\
+\end{array}
+$
+\pagebreak
+
+$ R_{\tilde{\nu}} $
+\pagebreak
+
+$
+\displaystyle
+R_{\tilde{\nu}}^{D} = 
+- \bigg( w,\ \sigma( \tilde{\nu} ) \cdot \mathbf{n} \bigg)_{\Gamma_D}
+- \beta \bigg( \sigma( w ) \cdot \mathbf{n},\ \tilde{\nu}- \overline{\tilde{\nu}} \bigg)_{\Gamma_D}
++ \bigg( \gamma^N_{\tilde{\nu}} w,\ \tilde{\nu}- \overline{\tilde{\nu}} \bigg)_{\Gamma_D}
+$
+\pagebreak
+
+$ \sigma(\tilde{\nu}) = K \nabla \tilde{\nu} $
+\pagebreak
+
+$ R_{\tilde{\nu}}^{D} $
+\pagebreak
+
+$ \gamma^N_{\tilde{\nu}} $
+\pagebreak
+
+$
+\displaystyle
+R_{\tilde{\nu}}^{ifc} = 
+- \bigg( [[w]],\ \{\sigma( \tilde{\nu} ) \cdot \mathbf{n} \} \bigg)_{\Gamma_{ifc}}
+- \beta\ \bigg( \{ \sigma( w ) \cdot \mathbf{n} \},\ [[\tilde{\nu}]] \bigg)_{\Gamma_{ifc}}
++ \bigg( \gamma^N_{\tilde{\nu}} [[w]],\ [[\tilde{\nu}]] \bigg)_{\Gamma_{ifc}}
+$
+\pagebreak
+
+$
+\displaystyle
+R_{\tilde{\nu}}^{GP} = 
+\sum_{F} \sum_{i} \int_{F} \gamma^{GP}_{\tilde{\nu}} [[ \frac{\partial^i w}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]] 
+: [[ \frac{\partial^i \tilde{\nu}}{\partial \mathbf{x}^i} \cdot \mathbf{n} ]] \ d\Gamma
+$
+\pagebreak
+
+$ \gamma^{GP}_{\tilde{\nu}} $
+\pagebreak
+
+$ \nu $
+\pagebreak
+
+$ R_{\tilde{\nu}}^{GP} $
+\pagebreak
+
+$N_f$
+\pagebreak
+
+\[ \mathbf{u} = \mathbf{u}\, (\mathbf{x}, t)\,, \quad \mathbf{u} \in \mathbb{R}^{N_f}\, \mbox{or}\, \mathbb{C}^{N_f}\,,\]
+\pagebreak
+
+\[ \frac{\partial \mathbf{u}}{\partial \mathbf{x}}, \frac{\partial^2 \mathbf{u}}{\partial \mathbf{x}^2}, \dots, \frac{\partial^d \mathbf{u}}{\partial \mathbf{x}^d} \quad \mbox{and} \quad \frac{\partial \mathbf{u}}{\partial t}, \frac{\partial^2 \mathbf{u}}{\partial t^2}, \dots, \frac{\partial^d \mathbf{u}}{\partial t^d}\,.\]
+\pagebreak
+
+$(\boldsymbol{\xi}^{\star}, \tau^{\star})$
+\pagebreak
+
+$\hat{\mathbf{u}}_i$
+\pagebreak
+
+\[ \mathbf{u} = \sum_i\ \mathbf{N}_i^{\xi}(\boldsymbol{\xi})\, \mathbf{N}_i^{\tau} (\tau)\, \hat{\mathbf{u}}_i\,,\]
+\pagebreak
+
+$N_i^{\xi}(\boldsymbol{\xi})$
+\pagebreak
+
+$N_i^{\tau}(\tau)$
+\pagebreak
+
+\[ \frac{\partial \mathbf{u}}{\partial \mathbf{x}} = \frac{\partial \mathbf{u}}{\partial \boldsymbol{\xi}} \frac{\partial \boldsymbol{\xi}}{\partial \mathbf{x}} 
+\quad \mbox{and} \quad 
+\frac{\partial \mathbf{u}}{\partial t} = \frac{\partial \mathbf{u}}{\partial \tau} \frac{\partial \tau}{\partial t}\,.\]
+\pagebreak
+
+$\frac{\partial \boldsymbol{\xi}}{\partial \mathbf{x}}\,, \frac{\partial \tau}{\partial t}$
+\pagebreak
+
+\[ \frac{\partial \mathbf{u}}{\partial \boldsymbol{\xi}} = \sum_i\ \frac{\partial N_i^{\xi}(\boldsymbol{\xi})}{\partial \boldsymbol{\xi}}\ N_i^{\tau}(\tau)\ \hat{\mathbf{u}}_i \]
+\pagebreak
+
+\[ \frac{\partial \mathbf{u}}{\partial \tau} = \sum_i\ N_i^{\xi}(\boldsymbol{\xi})\ \frac{\partial N_i^{\tau}(\tau)}{\partial \tau}\ \hat{\mathbf{u}}_i \]
+\pagebreak
+
+\[ \left\{ 
+\begin{array}{lll}
+\mathbf{x} & = & \sum_i N_i^{\xi}(\boldsymbol{\xi})\ \hat{\mathbf{x}}_i\\[5pt]
+t & = & \sum_i N_i^{\tau}(\tau)\ \hat{t}_i\\
+\end{array}
+\right. \]
+\pagebreak
+
+$ (\xi^{\star}, \tau^{\star}) $
+\pagebreak
+
+$ N_i^{\xi} (\boldsymbol{\xi}),\ N_i^{\tau}(\tau) $
+\pagebreak
+
+$ \frac{\partial N_i^{\xi}(\boldsymbol{\xi})}{\partial \boldsymbol{\xi}},\ \frac{\partial N_i^{\tau}(\tau)}{\partial \tau} $
+\pagebreak
+
+$ \frac{\partial^2 N_i^{\xi}(\boldsymbol{\xi})}{\partial \boldsymbol{\xi}^2},\ \frac{\partial^2 N_i^{\tau}(\tau)}{\partial \tau^2} $
+\pagebreak
+
+$ \mathbf{J}^{\xi} = \frac{\partial \mathbf{x}}{\partial \boldsymbol{\xi}},\ J^{\tau} = \frac{\partial t}{\partial \tau} $
+\pagebreak
+
+$ \mathbf{x} = \sum_i N_i^{\xi}(\boldsymbol{\xi})\ \hat{\mathbf{x}}_i,\ t = \sum_i N_i^{\tau}(\tau)\ \hat{t}_i $
+\pagebreak
+
+$ \hat{\mathbf{x}}_i $
+\pagebreak
+
+$ \hat{t}_i $
+\pagebreak
+
+$ \bm{x} = (x,y,z) = (x_1,x_2,x_3) $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:transformation_theorem}
+    \pfrac{N_j}{x_i} = \sum_{k=1}^{d_s} \pfrac{N_j}{\xi_k} \pfrac{\xi_k}{x_i}
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:transformation_theorem_invers}
+    \pfrac{N_j}{\xi_i} = \sum_{k=1}^{d_s} \pfrac{N_j}{x_k} \pfrac{x_k}{\xi_i}
+\end{equation} \]
+\pagebreak
+
+$ \pfrac{\bm{\xi}}{\bm{x}} $
+\pagebreak
+
+$ B_{ij} = \pfrac{N_j}{x_i} $
+\pagebreak
+
+$ \bm{J} = \pfrac{\bm{x}}{\bm{\xi}} $
+\pagebreak
+
+$ \tilde{\bm{N}}(\xi) $
+\pagebreak
+
+$ \bm{\hat{x}}^{(k)} $
+\pagebreak
+
+$ (k) $
+\pagebreak
+
+\[ \begin{equation} \label{eqn:geometry_interpolation}
+    \bm{x}(\bm{\xi}) = \tilde{N}_k(\bm{\xi}) \ \bm{\hat{x}}^{(k)}
+\end{equation} \]
+\pagebreak
+
+$ \bm{\xi} $
+\pagebreak
+
+$ \bm{J} $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:1st_geometric_derivatives}
+    J_{ij} = \pfrac{x_j}{\xi_i} = \pfrac{\tilde{N}_k}{\xi_i} \ \hat{x}_j^{(k)}
+\end{equation} \]
+\pagebreak
+
+\begin{eqnarray}\label{eqn:jacobian_applied}
+    \pfrac{N_k}{x_i} &= J_{ij}^{-1} \ \pfrac{N_k}{\xi_j} \\
+    \bm{B} &= \left( \bm{J} \right)^{-1} \ \bm{B}^{(\xi)}
+\end{eqnarray}
+\pagebreak
+
+\[ \begin{equation}\label{eqn:schwarz_theorem}
+    \pfrac{}{x} \left( \pfrac{N}{y} \right) = \pfrac{}{y} \left( \pfrac{N}{x} \right) = \ppfrac{N}{x}{y} = \ppfrac{N}{y}{x}
+\end{equation} \]
+\pagebreak
+
+$ 2^{nd} $
+\pagebreak
+
+$ 3^{rd} $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:B2}
+    \bm{B}^{(2)} = \bm{B}^{(\bm{xx})} =
+    \left[ \begin{array}{lll} 
+        \psquaredfrac{N_1}{x} &
+        \cdots &
+        \psquaredfrac{N_{n_s}}{x}
+        \\
+        \psquaredfrac{N_1}{y} &
+        \cdots &
+        \psquaredfrac{N_{n_s}}{y}
+        \\
+        \psquaredfrac{N_1}{z} &
+        \cdots &
+        \psquaredfrac{N_{n_s}}{z}
+        \\
+        \ppfrac{N_1}{y}{z} &
+        \cdots &
+        \ppfrac{N_{n_s}}{y}{z}
+        \\
+        \ppfrac{N_1}{x}{z} &
+        \cdots &
+        \ppfrac{N_{n_s}}{x}{z}
+        \\
+        \ppfrac{N_1}{x}{y} &
+        \cdots &
+        \ppfrac{N_{n_s}}{x}{y}
+    \end{array} \right] 
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:B3}
+\bm{B}^{(3)} = \bm{B}^{(\bm{xxx})} =
+    \left[ \begin{array}{lll} 
+        \pcuedfrac{N_1}{x} &
+        \cdots &
+        \pcuedfrac{N_{n_s}}{x}
+        \\
+        \pcuedfrac{N_1}{y} &
+        \cdots &
+        \pcuedfrac{N_{n_s}}{y}
+        \\
+        \pcuedfrac{N_1}{z} &
+        \cdots &
+        \pcuedfrac{N_{n_s}}{z}
+        \\
+        \ppcuedfrac{N_1}{x^2}{y} &
+        \cdots &
+        \ppcuedfrac{N_{n_s}}{x^2}{y}
+        \\ 
+        \ppcuedfrac{N_1}{x^2}{z} &
+        \cdots &
+        \ppcuedfrac{N_{n_s}}{x^2}{z}
+        \\ 
+        \ppcuedfrac{N_1}{x}{y^2} &
+        \cdots &
+        \ppcuedfrac{N_{n_s}}{x}{y^2}
+        \\ 
+        \ppcuedfrac{N_1}{y^2}{z} &
+        \cdots &
+        \ppcuedfrac{N_{n_s}}{y^2}{z}
+        \\ 
+        \ppcuedfrac{N_1}{x}{z^2} &
+        \cdots &
+        \ppcuedfrac{N_{n_s}}{x}{z^2}
+        \\ 
+        \ppcuedfrac{N_1}{y}{z^2} &
+        \cdots &
+        \ppcuedfrac{N_{n_s}}{y}{z^2}
+        \\ 
+        \pppfrac{N_1}{x}{y}{z} &
+        \cdots &
+        \pppfrac{N_{n_s}}{x}{y}{z}
+    \end{array} \right] 
+\end{equation} \]
+\pagebreak
+
+$ \bm{B}^{(\bm{\xi\xi})} $
+\pagebreak
+
+$ \bm{B}^{(\bm{\xi\xi\xi})} $
+\pagebreak
+
+$ \bm{\xi} = (\xi,\eta,\zeta) $
+\pagebreak
+
+$ \bm{B}^{(2)} $
+\pagebreak
+
+$ \bm{B}^{(\xi)} $
+\pagebreak
+
+$ \xi $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:2nd_derivative_xi}
+    \bm{B}^{(\xi\xi)} = 
+    \overline{\bm{J}}_a \ \bm{B}^{(2)} 
+    + \overline{\bm{J}}_b \ \bm{B}
+\end{equation} \]
+\pagebreak
+
+$ \overline{\bm{J}}_a $
+\pagebreak
+
+$ \overline{\bm{J}}_b $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:2nd_geometric_derivatives}
+    \left( \overline{J}_{b} \right)_{ij}  
+    = \widetilde{B}^{(\xi\xi)}_{ik} \ \hat{x}_j^{(k)}
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:2nd_derivative}
+    \bm{B}^{(2)} = 
+    \left(
+    \overline{\bm{J}}_a
+    \right)^{-1} \left[
+    \bm{B}^{(\xi\xi)} - \overline{\bm{J}}_b \ \bm{B}
+    \right]
+\end{equation} \]
+\pagebreak
+
+$ \bm{B}^{(\xi\xi)} $
+\pagebreak
+
+$ \ref{eqn:transformation_theorem_invers} $
+\pagebreak
+
+$ \bm{B}^{(\xi\xi\xi)} $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:3rd_derivative_xi}
+    \bm{B}^{(\xi\xi\xi)} = 
+        \overline{\overline{\bm{J}}}_a \ \bm{B}^{(3)} 
+        + \overline{\overline{\bm{J}}}_b \ \bm{B}^{(2)}
+        + \overline{\overline{\bm{J}}}_c \ \bm{B}
+\end{equation} \]
+\pagebreak
+
+$ \overline{\overline{\bm{J}}}_a $
+\pagebreak
+
+$ \overline{\overline{\bm{J}}}_b $
+\pagebreak
+
+$ \overline{\overline{\bm{J}}}_c $
+\pagebreak
+
+$ \eqref{eqn:3rd_geometric_derivatives} $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:3rd_geometric_derivatives}
+\left( \overline{\overline{J}}_{c} \right)_{ij}  
+= \widetilde{B}^{(\xi\xi\xi)}_{ik} \ \hat{x}_j^{(k)}
+\end{equation} \]
+\pagebreak
+
+$ \bm{B}^{(3)} $
+\pagebreak
+
+\[ \begin{equation}\label{eqn:3rd_derivative}
+    \bm{B}^{(3)} = 
+    \left(
+        \overline{\overline{\bm{J}}}_a
+    \right)^{-1} \left[
+        \bm{B}^{(\xi\xi\xi)} - \overline{\overline{\bm{J}}}_b \ \bm{B}^{(2)}
+        - \overline{\overline{\bm{J}}}_c \ \bm{B}
+    \right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_bar_a}
+
+\overline{\overline{\bm{J}}}_a = 
+
+\left[ 
+\begin{array}{lll lll l} 
+\cuedpfrac{x}{\xi} & 
+\cuedpfrac{y}{\xi} &
+\cuedpfrac{z}{\xi} &
+3 \squaredpfrac{x}{\xi} \pfrac{y}{\xi} & 
+3 \squaredpfrac{x}{\xi} \pfrac{z}{\xi} &
+3 \squaredpfrac{y}{\xi} \pfrac{x}{\xi} &
+\cdots
+\\
+\cuedpfrac{x}{\eta} & 
+\cuedpfrac{y}{\eta} &
+\cuedpfrac{z}{\eta} &
+3 \squaredpfrac{x}{\eta} \pfrac{y}{\eta} & 
+3 \squaredpfrac{x}{\eta} \pfrac{z}{\eta} &
+3 \squaredpfrac{y}{\eta} \pfrac{x}{\eta} &
+\cdots
+\\
+\cuedpfrac{x}{\zeta} & 
+\cuedpfrac{y}{\zeta} &
+\cuedpfrac{z}{\zeta} &
+3 \squaredpfrac{x}{\zeta} \pfrac{y}{\zeta} & 
+3 \squaredpfrac{x}{\zeta} \pfrac{z}{\zeta} &
+3 \squaredpfrac{y}{\zeta} \pfrac{x}{\zeta} &
+\cdots
+\\
+\squaredpfrac{x}{\xi} \pfrac{x}{\eta} &
+\squaredpfrac{y}{\xi} \pfrac{y}{\eta} &
+\squaredpfrac{z}{\xi} \pfrac{z}{\eta} &
+\squaredpfrac{x}{\xi} \pfrac{y}{\eta} + 2 \pfrac{x}{\xi} \pfrac{x}{\eta} \pfrac{y}{\xi} &
+\squaredpfrac{x}{\xi} \pfrac{z}{\eta} + 2 \pfrac{x}{\xi} \pfrac{x}{\eta} \pfrac{z}{\xi} &
+\squaredpfrac{y}{\xi} \pfrac{x}{\eta} + 2 \pfrac{y}{\xi} \pfrac{y}{\eta} \pfrac{x}{\xi} &
+\cdots
+\\
+\squaredpfrac{x}{\xi} \pfrac{x}{\zeta} &
+\squaredpfrac{y}{\xi} \pfrac{y}{\zeta} &
+\squaredpfrac{z}{\xi} \pfrac{z}{\zeta} &
+\squaredpfrac{x}{\xi} \pfrac{y}{\zeta} + 2 \pfrac{x}{\xi} \pfrac{x}{\zeta} \pfrac{y}{\xi} &
+\squaredpfrac{x}{\xi} \pfrac{z}{\zeta} + 2 \pfrac{x}{\xi} \pfrac{x}{\zeta} \pfrac{z}{\xi} &
+\squaredpfrac{y}{\xi} \pfrac{x}{\zeta} + 2 \pfrac{y}{\xi} \pfrac{y}{\zeta} \pfrac{x}{\xi} &
+\cdots
+\\
+\squaredpfrac{x}{\eta} \pfrac{x}{\xi} &
+\squaredpfrac{y}{\eta} \pfrac{y}{\xi} &
+\squaredpfrac{z}{\eta} \pfrac{z}{\xi} &
+\squaredpfrac{x}{\eta} \pfrac{y}{\xi} + 2 \pfrac{x}{\eta} \pfrac{x}{\xi} \pfrac{y}{\eta} &
+\squaredpfrac{x}{\eta} \pfrac{z}{\xi} + 2 \pfrac{x}{\eta} \pfrac{x}{\xi} \pfrac{z}{\eta} &
+\squaredpfrac{y}{\eta} \pfrac{x}{\xi} + 2 \pfrac{y}{\eta} \pfrac{y}{\xi} \pfrac{x}{\eta} &
+\cdots
+\\
+\squaredpfrac{x}{\eta} \pfrac{x}{\zeta} &
+\squaredpfrac{y}{\eta} \pfrac{y}{\zeta} &
+\squaredpfrac{z}{\eta} \pfrac{z}{\zeta} &
+\squaredpfrac{x}{\eta} \pfrac{y}{\zeta} + 2 \pfrac{x}{\eta} \pfrac{x}{\zeta} \pfrac{y}{\eta} &
+\squaredpfrac{x}{\eta} \pfrac{z}{\zeta} + 2 \pfrac{x}{\eta} \pfrac{x}{\zeta} \pfrac{z}{\eta} &
+\squaredpfrac{y}{\eta} \pfrac{x}{\zeta} + 2 \pfrac{y}{\eta} \pfrac{y}{\zeta} \pfrac{x}{\eta} &
+\cdots
+\\
+\squaredpfrac{x}{\zeta} \pfrac{x}{\xi} &
+\squaredpfrac{y}{\zeta} \pfrac{y}{\xi} &
+\squaredpfrac{z}{\zeta} \pfrac{z}{\xi} &
+\squaredpfrac{x}{\zeta} \pfrac{y}{\xi} + 2 \pfrac{x}{\zeta} \pfrac{x}{\xi} \pfrac{y}{\zeta} & 
+\squaredpfrac{x}{\zeta} \pfrac{z}{\xi} + 2 \pfrac{x}{\zeta} \pfrac{x}{\xi} \pfrac{z}{\zeta} &
+\squaredpfrac{y}{\zeta} \pfrac{x}{\xi} + 2 \pfrac{y}{\zeta} \pfrac{y}{\xi} \pfrac{x}{\zeta} &
+\cdots
+\\
+\squaredpfrac{x}{\zeta} \pfrac{x}{\eta} &
+\squaredpfrac{y}{\zeta} \pfrac{y}{\eta} &
+\squaredpfrac{z}{\zeta} \pfrac{z}{\eta} &
+\squaredpfrac{x}{\zeta} \pfrac{y}{\eta} + 2 \pfrac{x}{\zeta} \pfrac{x}{\eta} \pfrac{y}{\zeta} &
+\squaredpfrac{x}{\zeta} \pfrac{z}{\eta} + 2 \pfrac{x}{\zeta} \pfrac{x}{\eta} \pfrac{z}{\zeta} &
+\squaredpfrac{y}{\zeta} \pfrac{x}{\eta} + 2 \pfrac{y}{\zeta} \pfrac{y}{\eta} \pfrac{x}{\zeta} &
+\cdots
+\\
+\pfrac{x}{\xi} \pfrac{x}{\eta} \pfrac{x}{\zeta} & 
+\pfrac{y}{\xi} \pfrac{y}{\eta} \pfrac{y}{\zeta} & 
+\pfrac{z}{\xi} \pfrac{z}{\eta} \pfrac{z}{\zeta} &
+\pfrac{x}{\xi} \pfrac{x}{\eta} \pfrac{y}{\zeta} + \pfrac{x}{\xi} \pfrac{y}{\eta} \pfrac{x}{\zeta} 
++ \pfrac{y}{\xi} \pfrac{x}{\eta} \pfrac{x}{\zeta} &
+\pfrac{x}{\xi} \pfrac{x}{\eta} \pfrac{z}{\zeta} + \pfrac{x}{\xi} \pfrac{z}{\eta} \pfrac{x}{\zeta} 
++ \pfrac{z}{\xi} \pfrac{x}{\eta} \pfrac{x}{\zeta} &
+\pfrac{y}{\xi} \pfrac{y}{\eta} \pfrac{x}{\zeta} + \pfrac{y}{\xi} \pfrac{x}{\eta} \pfrac{y}{\zeta} 
++ \pfrac{x}{\xi} \pfrac{y}{\eta} \pfrac{y}{\zeta} &
+\cdots
+\\
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}
+\left[ 
+\begin{array}{l ll ll} 
+\cdots &
+3 \squaredpfrac{y}{\xi} \pfrac{z}{\xi} &
+3 \squaredpfrac{z}{\xi} \pfrac{x}{\xi} &
+3 \squaredpfrac{z}{\xi} \pfrac{y}{\xi} &
+\cdots
+\\
+\cdots &
+3 \squaredpfrac{y}{\eta} \pfrac{z}{\eta} &
+3 \squaredpfrac{z}{\eta} \pfrac{x}{\eta} &
+3 \squaredpfrac{z}{\eta} \pfrac{y}{\eta} &
+\cdots
+\\
+\cdots &
+3 \squaredpfrac{y}{\zeta} \pfrac{z}{\zeta} &
+3 \squaredpfrac{z}{\zeta} \pfrac{x}{\zeta} &
+3 \squaredpfrac{z}{\zeta} \pfrac{y}{\zeta} &
+\cdots
+\\
+\cdots &
+\squaredpfrac{y}{\xi} \pfrac{z}{\eta} + 2 \pfrac{y}{\xi} \pfrac{y}{\eta} \pfrac{z}{\xi} &
+\squaredpfrac{z}{\xi} \pfrac{x}{\eta} + 2 \pfrac{z}{\xi} \pfrac{z}{\eta} \pfrac{x}{\xi} &
+\squaredpfrac{z}{\xi} \pfrac{y}{\eta} + 2 \pfrac{z}{\xi} \pfrac{z}{\eta} \pfrac{y}{\xi} &
+\cdots
+\\
+\cdots &
+\squaredpfrac{y}{\xi} \pfrac{z}{\zeta} + 2 \pfrac{y}{\xi} \pfrac{y}{\zeta} \pfrac{z}{\xi} &
+\squaredpfrac{z}{\xi} \pfrac{x}{\zeta} + 2 \pfrac{z}{\xi} \pfrac{z}{\zeta} \pfrac{x}{\xi} &
+\squaredpfrac{z}{\xi} \pfrac{y}{\zeta} + 2 \pfrac{z}{\xi} \pfrac{z}{\zeta} \pfrac{y}{\xi} &
+\cdots
+\\
+\cdots &
+\squaredpfrac{y}{\eta} \pfrac{z}{\xi} + 2 \pfrac{y}{\eta} \pfrac{y}{\xi} \pfrac{z}{\eta} &
+\squaredpfrac{z}{\eta} \pfrac{x}{\xi} + 2 \pfrac{z}{\eta} \pfrac{z}{\xi} \pfrac{x}{\eta} &
+\squaredpfrac{z}{\eta} \pfrac{y}{\xi} + 2 \pfrac{z}{\eta} \pfrac{z}{\xi} \pfrac{y}{\eta} &
+\cdots
+\\
+\cdots &
+\squaredpfrac{y}{\eta} \pfrac{z}{\zeta} + 2 \pfrac{y}{\eta} \pfrac{y}{\zeta} \pfrac{z}{\eta} &
+\squaredpfrac{z}{\eta} \pfrac{x}{\zeta} + 2 \pfrac{z}{\eta} \pfrac{z}{\zeta} \pfrac{x}{\eta} &
+\squaredpfrac{z}{\eta} \pfrac{y}{\zeta} + 2 \pfrac{z}{\eta} \pfrac{z}{\zeta} \pfrac{y}{\eta} &
+\cdots
+\\
+\cdots &
+\squaredpfrac{y}{\zeta} \pfrac{z}{\xi} + 2 \pfrac{y}{\zeta} \pfrac{y}{\xi} \pfrac{z}{\zeta} &
+\squaredpfrac{z}{\zeta} \pfrac{x}{\xi} + 2 \pfrac{z}{\zeta} \pfrac{z}{\xi} \pfrac{x}{\zeta} &
+\squaredpfrac{z}{\zeta} \pfrac{y}{\xi} + 2 \pfrac{z}{\zeta} \pfrac{z}{\xi} \pfrac{y}{\zeta} &
+\cdots
+\\
+\cdots &
+\squaredpfrac{y}{\zeta} \pfrac{z}{\eta} + 2 \pfrac{y}{\zeta} \pfrac{y}{\eta} \pfrac{z}{\zeta} &
+\squaredpfrac{z}{\zeta} \pfrac{x}{\eta} + 2 \pfrac{z}{\zeta} \pfrac{z}{\eta} \pfrac{x}{\zeta} &
+\squaredpfrac{z}{\zeta} \pfrac{y}{\eta} + 2 \pfrac{z}{\zeta} \pfrac{z}{\eta} \pfrac{y}{\zeta} &
+\cdots
+\\
+\cdots &
+\pfrac{y}{\xi} \pfrac{y}{\eta} \pfrac{z}{\zeta} + \pfrac{y}{\xi} \pfrac{z}{\eta} \pfrac{y}{\zeta} 
++ \pfrac{z}{\xi} \pfrac{y}{\eta} \pfrac{y}{\zeta} &
+\pfrac{z}{\xi} \pfrac{z}{\eta} \pfrac{x}{\zeta} + \pfrac{z}{\xi} \pfrac{x}{\eta} \pfrac{z}{\zeta} 
++ \pfrac{x}{\xi} \pfrac{z}{\eta} \pfrac{z}{\zeta} &
+\pfrac{z}{\xi} \pfrac{z}{\eta} \pfrac{y}{\zeta} + \pfrac{z}{\xi} \pfrac{y}{\eta} \pfrac{z}{\zeta} 
++ \pfrac{y}{\xi} \pfrac{z}{\eta} \pfrac{z}{\zeta} &
+\cdots
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}
+\left[ 
+\begin{array}{l l} 
+\cdots &
+6 \pfrac{x}{\xi} \pfrac{y}{\xi} \pfrac{z}{\xi}
+\\
+\cdots &
+6 \pfrac{x}{\eta} \pfrac{y}{\eta} \pfrac{z}{\eta}
+\\
+\cdots &
+6 \pfrac{x}{\zeta} \pfrac{y}{\zeta} \pfrac{z}{\zeta} 
+\\
+\cdots &
+2 \pfrac{x}{\xi} \pfrac{y}{\xi} \pfrac{z}{\eta} + 2 \pfrac{x}{\xi} \pfrac{y}{\eta} \pfrac{z}{\xi} 
++ 2 \pfrac{x}{\eta} \pfrac{y}{\xi} \pfrac{z}{\xi}
+\\
+\cdots &
+2 \pfrac{x}{\xi} \pfrac{y}{\xi} \pfrac{z}{\zeta} + 2 \pfrac{x}{\xi} \pfrac{y}{\zeta} \pfrac{z}{\xi} 
++ 2 \pfrac{x}{\zeta} \pfrac{y}{\xi} \pfrac{z}{\xi}
+\\
+\cdots &
+2 \pfrac{x}{\eta} \pfrac{y}{\eta} \pfrac{z}{\xi} + 2 \pfrac{x}{\eta} \pfrac{y}{\xi} \pfrac{z}{\eta} 
++ 2 \pfrac{x}{\xi} \pfrac{y}{\eta} \pfrac{z}{\eta}
+\\
+\cdots &
+2 \pfrac{x}{\eta} \pfrac{y}{\eta} \pfrac{z}{\zeta} + 2 \pfrac{x}{\eta} \pfrac{y}{\zeta} \pfrac{z}{\eta} 
++ 2 \pfrac{x}{\zeta} \pfrac{y}{\eta} \pfrac{z}{\eta}
+\\
+\cdots &
+2 \pfrac{x}{\zeta} \pfrac{y}{\zeta} \pfrac{z}{\xi} + 2 \pfrac{x}{\zeta} \pfrac{y}{\xi} \pfrac{z}{\zeta} 
++ 2 \pfrac{x}{\xi} \pfrac{y}{\zeta} \pfrac{z}{\zeta}
+\\
+\cdots &
+2 \pfrac{x}{\zeta} \pfrac{y}{\zeta} \pfrac{z}{\eta} + 2 \pfrac{x}{\zeta} \pfrac{y}{\eta} \pfrac{z}{\zeta} 
++ 2 \pfrac{x}{\eta} \pfrac{y}{\zeta} \pfrac{z}{\zeta}
+\\
+\cdots &
+\pfrac{x}{\xi} \pfrac{y}{\eta} \pfrac{z}{\zeta} + \pfrac{z}{\xi} \pfrac{y}{\eta} \pfrac{x}{\zeta} 
++ \pfrac{y}{\xi} \pfrac{z}{\eta} \pfrac{x}{\zeta} +     
+\pfrac{x}{\xi} \pfrac{z}{\eta} \pfrac{y}{\zeta} + \pfrac{z}{\xi} \pfrac{x}{\eta} \pfrac{z}{\zeta} 
++ \pfrac{y}{\xi} \pfrac{x}{\eta} \pfrac{z}{\zeta}
+\end{array} 
+\right]
+
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_bar_b}
+
+\overline{\overline{\bm{J}}}_b = 
+
+\left[ 
+\begin{array}{lll} 
+3 \psquaredfrac{x}{\xi} \pfrac{x}{\xi} &
+3 \psquaredfrac{y}{\xi} \pfrac{y}{\xi} &
+3 \psquaredfrac{z}{\xi} \pfrac{z}{\xi} &
+\cdots
+\\
+3 \psquaredfrac{x}{\eta} \pfrac{x}{\eta} &
+3 \psquaredfrac{y}{\eta} \pfrac{y}{\eta} &
+3 \psquaredfrac{z}{\eta} \pfrac{z}{\eta} &
+\cdots
+\\
+3 \psquaredfrac{x}{\zeta} \pfrac{x}{\zeta} &
+3 \psquaredfrac{y}{\zeta} \pfrac{y}{\zeta} &
+3 \psquaredfrac{z}{\zeta} \pfrac{z}{\zeta} &
+\cdots
+\\
+2 \ppfrac{x}{\xi}{\eta} \pfrac{x}{\xi} + \psquaredfrac{x}{\xi} \pfrac{x}{\eta} &
+2 \ppfrac{y}{\xi}{\eta} \pfrac{y}{\xi} + \psquaredfrac{y}{\xi} \pfrac{y}{\eta} &
+2 \ppfrac{z}{\xi}{\eta} \pfrac{z}{\xi} + \psquaredfrac{z}{\xi} \pfrac{z}{\eta} &
+\cdots
+\\
+2 \ppfrac{x}{\xi}{\zeta} \pfrac{x}{\xi} + \psquaredfrac{x}{\xi} \pfrac{x}{\zeta} &
+2 \ppfrac{y}{\xi}{\zeta} \pfrac{y}{\xi} + \psquaredfrac{y}{\xi} \pfrac{y}{\zeta} &
+2 \ppfrac{z}{\xi}{\zeta} \pfrac{z}{\xi} + \psquaredfrac{z}{\xi} \pfrac{z}{\zeta} &
+\cdots
+\\
+2 \ppfrac{x}{\xi}{\eta} \pfrac{x}{\eta} + \psquaredfrac{x}{\eta} \pfrac{x}{\xi} &
+2 \ppfrac{y}{\xi}{\eta} \pfrac{y}{\eta} + \psquaredfrac{y}{\eta} \pfrac{y}{\xi} &
+2 \ppfrac{z}{\xi}{\eta} \pfrac{z}{\eta} + \psquaredfrac{z}{\eta} \pfrac{z}{\xi} &
+\cdots
+\\
+2 \ppfrac{x}{\eta}{\zeta} \pfrac{x}{\eta} + \psquaredfrac{x}{\eta} \pfrac{x}{\zeta} &
+2 \ppfrac{y}{\eta}{\zeta} \pfrac{y}{\eta} + \psquaredfrac{y}{\eta} \pfrac{y}{\zeta} &
+2 \ppfrac{z}{\eta}{\zeta} \pfrac{z}{\eta} + \psquaredfrac{z}{\eta} \pfrac{z}{\zeta} &
+\cdots
+\\
+2 \ppfrac{x}{\xi}{\zeta} \pfrac{x}{\zeta} + \psquaredfrac{x}{\zeta} \pfrac{x}{\xi} &
+2 \ppfrac{y}{\xi}{\zeta} \pfrac{y}{\zeta} + \psquaredfrac{y}{\zeta} \pfrac{y}{\xi} &
+2 \ppfrac{z}{\xi}{\zeta} \pfrac{z}{\zeta} + \psquaredfrac{z}{\zeta} \pfrac{z}{\xi} &
+\cdots
+\\
+2 \ppfrac{x}{\eta}{\zeta} \pfrac{x}{\zeta} + \psquaredfrac{x}{\zeta} \pfrac{x}{\eta} &
+2 \ppfrac{y}{\eta}{\zeta} \pfrac{y}{\zeta} + \psquaredfrac{y}{\zeta} \pfrac{y}{\eta} &
+2 \ppfrac{z}{\eta}{\zeta} \pfrac{z}{\zeta} + \psquaredfrac{z}{\zeta} \pfrac{z}{\eta} &
+\cdots
+\\
+\ppfrac{x}{\xi}{\zeta} \pfrac{x}{\eta} + \ppfrac{x}{\eta}{\zeta} \pfrac{x}{\xi} + \ppfrac{x}{\xi}{\eta} \pfrac{x}{\zeta} &
+\ppfrac{y}{\xi}{\zeta} \pfrac{y}{\eta} + \ppfrac{y}{\eta}{\zeta} \pfrac{y}{\xi} + \ppfrac{y}{\xi}{\eta} \pfrac{y}{\zeta} &
+\ppfrac{z}{\xi}{\zeta} \pfrac{z}{\eta} + \ppfrac{z}{\eta}{\zeta} \pfrac{z}{\xi} + \ppfrac{z}{\xi}{\eta} \pfrac{z}{\zeta} &
+\cdots
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}
+\left[ 
+\begin{array}{lll} 
+\cdots &
+3 \psquaredfrac{y}{\xi} \pfrac{z}{\xi} + 3 \psquaredfrac{z}{\xi} \pfrac{y}{\xi} &
+3 \psquaredfrac{x}{\xi} \pfrac{z}{\xi} + 3 \psquaredfrac{z}{\xi} \pfrac{x}{\xi} &
+3 \psquaredfrac{x}{\xi} \pfrac{y}{\xi} + 3 \psquaredfrac{y}{\xi} \pfrac{x}{\xi}
+\\
+\cdots &
+3 \psquaredfrac{y}{\eta} \pfrac{z}{\eta} + 3 \psquaredfrac{z}{\eta} \pfrac{y}{\eta} &
+3 \psquaredfrac{x}{\eta} \pfrac{z}{\eta} + 3 \psquaredfrac{z}{\eta} \pfrac{x}{\eta} &
+3 \psquaredfrac{x}{\eta} \pfrac{y}{\eta} + 3 \psquaredfrac{y}{\eta} \pfrac{x}{\eta}
+\\
+\cdots &
+3 \psquaredfrac{y}{\zeta} \pfrac{z}{\zeta} + 3 \psquaredfrac{z}{\zeta} \pfrac{y}{\zeta} &
+3 \psquaredfrac{x}{\zeta} \pfrac{z}{\zeta} + 3 \psquaredfrac{z}{\zeta} \pfrac{x}{\zeta} &
+3 \psquaredfrac{x}{\zeta} \pfrac{y}{\zeta} + 3 \psquaredfrac{y}{\zeta} \pfrac{x}{\zeta}
+\\
+\cdots &
+2 \ppfrac{y}{\xi}{\eta} \pfrac{z}{\xi} + 2 \ppfrac{z}{\xi}{\eta} \pfrac{y}{\xi} + 
+\psquaredfrac{z}{\xi} \pfrac{y}{\eta} + \psquaredfrac{y}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\eta} \pfrac{z}{\xi} + 2 \ppfrac{z}{\xi}{\eta} \pfrac{x}{\xi} + 
+\psquaredfrac{z}{\xi} \pfrac{x}{\eta} + \psquaredfrac{x}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\eta} \pfrac{y}{\xi} + 2 \ppfrac{y}{\xi}{\eta} \pfrac{x}{\xi} + 
+\psquaredfrac{y}{\xi} \pfrac{x}{\eta} + \psquaredfrac{x}{\xi} \pfrac{y}{\eta} &
+\\
+\cdots &
+2 \ppfrac{y}{\xi}{\zeta} \pfrac{z}{\xi} + 2 \ppfrac{z}{\xi}{\zeta} \pfrac{y}{\xi} + 
+\psquaredfrac{z}{\xi} \pfrac{y}{\zeta} + \psquaredfrac{y}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\zeta} \pfrac{z}{\xi} + 2 \ppfrac{z}{\xi}{\zeta} \pfrac{x}{\xi} + 
+\psquaredfrac{z}{\xi} \pfrac{x}{\zeta} + \psquaredfrac{x}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\zeta} \pfrac{y}{\xi} + 2 \ppfrac{y}{\xi}{\zeta} \pfrac{x}{\xi} + 
+\psquaredfrac{y}{\xi} \pfrac{x}{\zeta} + \psquaredfrac{x}{\xi} \pfrac{y}{\eta}  
+\\
+\cdots &
+2 \ppfrac{y}{\xi}{\eta} \pfrac{z}{\eta} + 2 \ppfrac{z}{\xi}{\eta} \pfrac{y}{\eta} + 
+\psquaredfrac{z}{\eta} \pfrac{y}{\xi} + \psquaredfrac{y}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\eta} \pfrac{z}{\eta} + 2 \ppfrac{z}{\xi}{\eta} \pfrac{x}{\eta} + 
+\psquaredfrac{z}{\eta} \pfrac{x}{\xi} + \psquaredfrac{x}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\eta} \pfrac{y}{\eta} + 2 \ppfrac{y}{\xi}{\eta} \pfrac{x}{\eta} + 
+\psquaredfrac{y}{\eta} \pfrac{x}{\xi} + \psquaredfrac{x}{\xi} \pfrac{y}{\eta}
+\\
+\cdots &
+2 \ppfrac{y}{\eta}{\zeta} \pfrac{z}{\eta} + 2 \ppfrac{z}{\eta}{\zeta} \pfrac{y}{\eta} + 
+\psquaredfrac{z}{\eta} \pfrac{y}{\zeta} + \psquaredfrac{y}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\eta}{\zeta} \pfrac{z}{\eta} + 2 \ppfrac{z}{\eta}{\zeta} \pfrac{x}{\eta} + 
+\psquaredfrac{z}{\eta} \pfrac{x}{\zeta} + \psquaredfrac{x}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\eta}{\zeta} \pfrac{y}{\eta} + 2 \ppfrac{y}{\eta}{\zeta} \pfrac{x}{\eta} + 
+\psquaredfrac{y}{\eta} \pfrac{x}{\zeta} + \psquaredfrac{x}{\xi} \pfrac{y}{\eta}
+\\
+\cdots &
+2 \ppfrac{y}{\xi}{\zeta} \pfrac{z}{\zeta} + 2 \ppfrac{z}{\xi}{\zeta} \pfrac{y}{\zeta} + 
+\psquaredfrac{z}{\zeta} \pfrac{y}{\xi} + \psquaredfrac{y}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\zeta} \pfrac{z}{\zeta} + 2 \ppfrac{z}{\xi}{\zeta} \pfrac{x}{\zeta} + 
+\psquaredfrac{z}{\zeta} \pfrac{x}{\xi} + \psquaredfrac{x}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\xi}{\zeta} \pfrac{y}{\zeta} + 2 \ppfrac{y}{\xi}{\zeta} \pfrac{x}{\zeta} + 
+\psquaredfrac{y}{\zeta} \pfrac{x}{\xi} + \psquaredfrac{x}{\xi} \pfrac{y}{\eta} 
+\\
+\cdots &
+2 \ppfrac{y}{\eta}{\zeta} \pfrac{z}{\zeta} + 2 \ppfrac{z}{\eta}{\zeta} \pfrac{y}{\zeta} + 
+\psquaredfrac{z}{\zeta} \pfrac{y}{\eta} + \psquaredfrac{y}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\eta}{\zeta} \pfrac{z}{\zeta} + 2 \ppfrac{z}{\eta}{\zeta} \pfrac{x}{\zeta} + 
+\psquaredfrac{z}{\zeta} \pfrac{x}{\eta} + \psquaredfrac{x}{\xi} \pfrac{z}{\eta} &
+2 \ppfrac{x}{\eta}{\zeta} \pfrac{y}{\zeta} + 2 \ppfrac{y}{\eta}{\zeta} \pfrac{x}{\zeta} + 
+\psquaredfrac{y}{\zeta} \pfrac{x}{\eta} + \psquaredfrac{x}{\xi} \pfrac{y}{\eta} 
+\\
+\cdots &
+\ppfrac{y}{\xi}{\zeta} \pfrac{z}{\eta} + \ppfrac{z}{\eta}{\zeta} \pfrac{y}{\xi} + \ppfrac{z}{\xi}{\eta} \pfrac{y}{\zeta} 
++\ppfrac{z}{\xi}{\zeta} \pfrac{y}{\eta} + \ppfrac{y}{\eta}{\zeta} \pfrac{z}{\xi} + \ppfrac{y}{\xi}{\eta} \pfrac{z}{\zeta} &
+\ppfrac{x}{\xi}{\zeta} \pfrac{z}{\eta} + \ppfrac{z}{\eta}{\zeta} \pfrac{x}{\xi} + \ppfrac{z}{\xi}{\eta} \pfrac{x}{\zeta} 
++\ppfrac{z}{\xi}{\zeta} \pfrac{x}{\eta} + \ppfrac{x}{\eta}{\zeta} \pfrac{z}{\xi} + \ppfrac{x}{\xi}{\eta} \pfrac{z}{\zeta} &
+\ppfrac{x}{\xi}{\zeta} \pfrac{y}{\eta} + \ppfrac{y}{\eta}{\zeta} \pfrac{x}{\xi} + \ppfrac{y}{\xi}{\eta} \pfrac{x}{\zeta} 
++\ppfrac{y}{\xi}{\zeta} \pfrac{x}{\eta} + \ppfrac{x}{\eta}{\zeta} \pfrac{y}{\xi} + \ppfrac{x}{\xi}{\eta} \pfrac{y}{\zeta} 
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_bar_c}
+
+\overline{\overline{\bm{J}}}_c = 
+
+\left[ 
+\begin{array}{lll}
+\pcuedfrac{x}{\xi} &
+\pcuedfrac{y}{\xi} &
+\pcuedfrac{z}{\xi}
+\\
+\pcuedfrac{x}{\eta} &
+\pcuedfrac{y}{\eta} &
+\pcuedfrac{z}{\eta}
+\\
+\pcuedfrac{x}{\zeta} &
+\pcuedfrac{y}{\zeta} &
+\pcuedfrac{z}{\zeta}
+\\
+\ppcuedfrac{x}{\xi^2}{\eta} &
+\ppcuedfrac{y}{\xi^2}{\eta} &
+\ppcuedfrac{z}{\xi^2}{\eta}
+\\
+\ppcuedfrac{x}{\xi^2}{\zeta} &
+\ppcuedfrac{y}{\xi^2}{\zeta} &
+\ppcuedfrac{z}{\xi^2}{\zeta}
+\\
+\ppcuedfrac{x}{\xi}{\eta^2} &
+\ppcuedfrac{y}{\xi}{\eta^2} &
+\ppcuedfrac{z}{\xi}{\eta^2}
+\\
+\ppcuedfrac{x}{\eta^2}{\zeta} &
+\ppcuedfrac{y}{\eta^2}{\zeta} &
+\ppcuedfrac{z}{\eta^2}{\zeta}
+\\
+\ppcuedfrac{x}{\xi}{\zeta^2} &
+\ppcuedfrac{y}{\xi}{\zeta^2} &
+\ppcuedfrac{z}{\xi}{\zeta^2}
+\\
+\ppcuedfrac{x}{\eta}{\zeta^2} &
+\ppcuedfrac{y}{\eta}{\zeta^2} &
+\ppcuedfrac{z}{\eta}{\zeta^2}
+\\
+\pppfrac{x}{\xi}{\eta}{\zeta} &
+\pppfrac{y}{\xi}{\eta}{\zeta} &
+\pppfrac{z}{\xi}{\eta}{\zeta} 
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_a}
+
+\overline{\mathbf{J}}_a = 
+
+\left[ 
+\begin{array}{lll lll}
+\squaredpfrac{x}{\xi} &
+\squaredpfrac{y}{\xi} &
+\squaredpfrac{z}{\xi} &
+2 \pfrac{y}{\xi} \pfrac{z}{\xi} &
+2 \pfrac{x}{\xi} \pfrac{z}{\xi} &
+2 \pfrac{x}{\xi} \pfrac{y}{\xi} 
+\\
+\squaredpfrac{x}{\eta} &
+\squaredpfrac{y}{\eta} &
+\squaredpfrac{z}{\eta} &
+2 \pfrac{y}{\eta} \pfrac{z}{\eta} &
+2 \pfrac{x}{\eta} \pfrac{z}{\eta} &
+2 \pfrac{x}{\eta} \pfrac{y}{\eta} 
+\\
+\squaredpfrac{x}{\zeta} &
+\squaredpfrac{y}{\zeta} &
+\squaredpfrac{z}{\zeta} &
+2 \pfrac{y}{\zeta} \pfrac{z}{\zeta} &
+2 \pfrac{x}{\zeta} \pfrac{z}{\zeta} &
+2 \pfrac{x}{\zeta} \pfrac{y}{\zeta} 
+\\
+\pfrac{x}{\eta} \pfrac{x}{\zeta} &
+\pfrac{y}{\eta} \pfrac{y}{\zeta} &
+\pfrac{z}{\eta} \pfrac{z}{\zeta} &
+\pfrac{y}{\eta} \pfrac{z}{\zeta} + \pfrac{z}{\eta} \pfrac{y}{\zeta} &
+\pfrac{x}{\eta} \pfrac{z}{\zeta} + \pfrac{z}{\eta} \pfrac{x}{\zeta} &
+\pfrac{x}{\eta} \pfrac{y}{\zeta} + \pfrac{y}{\eta} \pfrac{x}{\zeta} 
+\\
+\pfrac{x}{\xi} \pfrac{x}{\zeta} &
+\pfrac{y}{\xi} \pfrac{y}{\zeta} &
+\pfrac{z}{\xi} \pfrac{z}{\zeta} &
+\pfrac{y}{\xi} \pfrac{z}{\zeta} + \pfrac{z}{\xi} \pfrac{y}{\zeta} &
+\pfrac{x}{\xi} \pfrac{z}{\zeta} + \pfrac{z}{\xi} \pfrac{x}{\zeta} &
+\pfrac{x}{\xi} \pfrac{y}{\zeta} + \pfrac{y}{\xi} \pfrac{x}{\zeta} 
+\\
+\pfrac{x}{\xi} \pfrac{x}{\eta} &
+\pfrac{y}{\xi} \pfrac{y}{\eta} &
+\pfrac{z}{\xi} \pfrac{z}{\eta} &
+\pfrac{y}{\xi} \pfrac{z}{\eta} + \pfrac{z}{\xi} \pfrac{y}{\eta} &
+\pfrac{x}{\xi} \pfrac{z}{\eta} + \pfrac{z}{\xi} \pfrac{x}{\eta} &
+\pfrac{x}{\xi} \pfrac{y}{\eta} + \pfrac{y}{\xi} \pfrac{x}{\eta} 
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_b}
+
+\overline{\mathbf{J}}_b = 
+
+\left[ 
+\begin{array}{lll lll}
+\psquaredfrac{x}{\xi} &
+\psquaredfrac{y}{\xi} &
+\psquaredfrac{z}{\xi} 
+\\
+\psquaredfrac{x}{\eta} &
+\psquaredfrac{y}{\eta} &
+\psquaredfrac{z}{\eta} 
+\\ 
+\psquaredfrac{x}{\zeta} &
+\psquaredfrac{y}{\zeta} &
+\psquaredfrac{z}{\zeta}
+\\ 
+\ppfrac{x}{\eta}{\zeta} &
+\ppfrac{y}{\eta}{\zeta} &
+\ppfrac{z}{\eta}{\zeta}
+\\
+\ppfrac{x}{\xi}{\zeta} &
+\ppfrac{y}{\xi}{\zeta} &
+\ppfrac{z}{\xi}{\zeta}
+\\
+\ppfrac{x}{\xi}{\eta} &
+\ppfrac{y}{\xi}{\eta} &
+\ppfrac{z}{\xi}{\eta}
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_bar_a_2D}
+
+\overline{\overline{\bm{J}}}_a = 
+
+\left[ 
+\begin{array}{ll ll}
+\cuedpfrac{x}{\xi} &
+\cuedpfrac{y}{\xi} &
+3 \squaredpfrac{x}{\xi} \pfrac{y}{\xi} &
+3 \squaredpfrac{y}{\xi} \pfrac{x}{\xi} 
+\\
+\cuedpfrac{x}{\eta} &
+\cuedpfrac{y}{\eta} &
+3 \squaredpfrac{x}{\eta} \pfrac{y}{\eta} &
+3 \squaredpfrac{y}{\eta} \pfrac{x}{\eta} 
+\\
+\squaredpfrac{x}{\xi} \pfrac{x}{\eta} &
+\squaredpfrac{y}{\xi} \pfrac{y}{\eta} &
+\squaredpfrac{x}{\xi} \pfrac{y}{\eta} + 2 \pfrac{x}{\xi} \pfrac{y}{\xi} \pfrac{x}{\eta} &
+\squaredpfrac{y}{\xi} \pfrac{x}{\eta} + 2 \pfrac{x}{\xi} \pfrac{y}{\xi} \pfrac{y}{\eta} 
+\\
+\squaredpfrac{x}{\eta} \pfrac{x}{\xi} &
+\squaredpfrac{y}{\eta} \pfrac{y}{\xi} &
+\squaredpfrac{x}{\eta} \pfrac{y}{\xi} + 2 \pfrac{x}{\xi} \pfrac{x}{\eta} \pfrac{y}{\eta}  &
+\squaredpfrac{y}{\eta} \pfrac{x}{\xi} + 2 \pfrac{y}{\xi} \pfrac{x}{\eta} \pfrac{y}{\eta}
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_bar_b_2D}
+
+\overline{\overline{\bm{J}}}_b = 
+
+\left[ 
+\begin{array}{ll l}
+3 \psquaredfrac{x}{\xi} \pfrac{x}{\xi} &
+3 \psquaredfrac{y}{\xi} \pfrac{y}{\xi} &
+3 \psquaredfrac{x}{\xi} \pfrac{y}{\xi} + 3 \psquaredfrac{y}{\xi} \pfrac{x}{\xi} 
+\\
+3 \psquaredfrac{x}{\eta} \pfrac{x}{\eta} &
+3 \psquaredfrac{y}{\eta} \pfrac{y}{\eta} &
+3 \psquaredfrac{x}{\eta} \pfrac{y}{\eta} + 3 \psquaredfrac{y}{\eta} \pfrac{x}{\eta} 
+\\
+2 \ppfrac{x}{\xi}{\eta} \pfrac{x}{\xi} + \psquaredfrac{x}{\xi} \pfrac{x}{\eta} &
+2 \ppfrac{y}{\xi}{\eta} \pfrac{y}{\xi} + \psquaredfrac{y}{\xi} \pfrac{y}{\eta} &
+2 \ppfrac{x}{\xi}{\eta} \pfrac{y}{\xi} + 2 \ppfrac{y}{\xi}{\eta} \pfrac{x}{\xi} +
+\psquaredfrac{x}{\xi} \pfrac{y}{\eta} + \psquaredfrac{y}{\xi} \pfrac{x}{\eta}
+\\
+\psquaredfrac{x}{\eta} \pfrac{x}{\xi} + 2 \ppfrac{x}{\xi}{\eta} \pfrac{x}{\eta} &
+\psquaredfrac{y}{\eta} \pfrac{y}{\xi} + 2 \ppfrac{y}{\xi}{\eta} \pfrac{y}{\eta} &
+2 \ppfrac{x}{\xi}{\eta} \pfrac{y}{\eta} + 2 \ppfrac{y}{\xi}{\eta} \pfrac{x}{\eta} +
+\psquaredfrac{x}{\eta} \pfrac{y}{\xi} + \psquaredfrac{y}{\eta} \pfrac{x}{\xi} 
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_bar_c_2D}
+
+\overline{\overline{\bm{J}}}_c = 
+
+\left[ 
+\begin{array}{ll}
+\pcuedfrac{x}{\xi} &
+\pcuedfrac{y}{\xi}
+\\
+\pcuedfrac{x}{\eta} &
+\pcuedfrac{y}{\eta} 
+\\
+\ppcuedfrac{x}{\xi^2}{\eta} &
+\ppcuedfrac{y}{\xi^2}{\eta}
+\\
+\ppcuedfrac{x}{\xi}{\eta^2} &
+\ppcuedfrac{y}{\xi}{\eta^2}
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_a_2D}
+
+\overline{\bm{J}}_a = 
+
+\left[ 
+\begin{array}{lll} 
+\squaredpfrac{x}{\xi} &
+\squaredpfrac{y}{\xi} &
+2 \pfrac{x}{\xi} \pfrac{y}{\xi} 
+\\
+\squaredpfrac{x}{\eta} &
+\squaredpfrac{y}{\eta} &
+2 \pfrac{x}{\eta} \pfrac{y}{\eta}
+\\
+\pfrac{x}{\xi} \pfrac{x}{\eta} &
+\pfrac{y}{\xi} \pfrac{y}{\eta} &
+\pfrac{x}{\xi} \pfrac{y}{\eta} + \pfrac{y}{\xi} \pfrac{x}{\eta}
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \begin{equation}\label{eqn:J_bar_b_2D}
+
+\overline{\bm{J}}_b = 
+
+\left[ 
+\begin{array}{ll}
+\psquaredfrac{x}{\xi} &
+\psquaredfrac{y}{\xi}  
+\\
+\psquaredfrac{x}{\eta} &
+\psquaredfrac{y}{\eta}
+\\
+\ppfrac{x}{\xi}{\eta} &
+\ppfrac{y}{\xi}{\eta}
+\end{array} 
+\right]
+\end{equation} \]
+\pagebreak
+
+\[ \int_{\Omega} (IQI) d \Omega\ \]
+\pagebreak
+
+$ \hat{\phi} $
+\pagebreak
+
+$ n $
+\pagebreak
+
+$ k_{shift} $
+\pagebreak
+
+$ sign $
+\pagebreak
+
+$ IQI = W_{property}( \frac {\hat{\phi}}{\phi_{ref}} - k_{shift} )^n $
+\pagebreak
+
+$ W_{property} $
+\pagebreak
+
+$ W_{property}=1.0 $
+\pagebreak
+
+$ \phi_{ref} $
+\pagebreak
+
+$ base = ( \frac {\hat{\phi}}{\phi_{ref}} - k_{shift} ) $
+\pagebreak
+
+$ sign = -1 $
+\pagebreak
+
+$ base > 0.0 $
+\pagebreak
+
+$ base \gets 0.0 $
+\pagebreak
+
+$ sign = +1 $
+\pagebreak
+
+$ base < 0.0 $
+\pagebreak
+
+$ IQI_{MaxDOF} = base^n $
+\pagebreak
+
+$ ( sign = +1 ) $
+\pagebreak
+
+$ ( sign = -1 ) $
+\pagebreak
+
+\[
+    \mathbf{r_e}, \,
+    \frac{\partial  \mathbf{r_e} }{\partial \mathbf{u}} , \,
+    \frac{\partial  \mathbf{r_e} }{\partial \mathbf{u}^{\prime}} , \,
+    \frac{\partial  \mathbf{r_e} }{\partial \mathbf{u}^{\prime\prime}} , \,
+    \cdots , \,
+    \frac{\partial  \mathbf{r_e} }{\partial \mathbf{\dot u}} , \,
+    \frac{\partial  \mathbf{r_e} }{\partial \mathbf{\ddot u}} , \,
+    \cdots , \,
+    \frac{\partial  \mathbf{r_e} }{\partial \mathbf{\dot u}^{\prime}} , \,
+    \cdots
+\]
+\pagebreak
+
+\[
+\mathbf{R} \left( \mathbf{u}  \right) = 0 \mbox{, where } \mathbf{R} \in S^N_u, \mathbf{u} \in S^N_u,
+\]
+\pagebreak
+
+$\mathbf{R}$
+\pagebreak
+
+$\mathbf{u}$
+\pagebreak
+
+$SS$
+\pagebreak
+
+\[
+\mathbf{R} \left( \mathbf{u}  \right) = \sum_e \,\mathbf{A}_e^T \mathbf{R}_e \left( \mathbf{u}_e  \right) \mathbf{A}_e \mbox{, where }  \mathbf{u}_e = \mathbf{A}_e \, \mathbf{u},   
+\]
+\pagebreak
+
+$ \mathbf{R} $
+\pagebreak
+
+$ \mathbf{A}_e $
+\pagebreak
+
+\[
+\gamma_{u}^{GP} = \alpha_{u}^{GP} \rho |\mathbf{u} \cdot \mathbf{n}| h^2
+\]
+\pagebreak
+
+$ \alpha_{u}^{GP} $
+\pagebreak
+
+$ [ 0.001 0.005 ] $
+\pagebreak
+
+$ rho $
+\pagebreak
+
+$ \mathbf{n} $
+\pagebreak
+
+\[
+\gamma_{N} = \alpha_{N} \frac{ \kappa }{ h };
+\]
+\pagebreak
+
+$ \alpha_{N} $
+\pagebreak
+
+$ [  ] $
+\pagebreak
+
+$ \gamma_{N} $
+\pagebreak
+
+\[
+w_{S} = \frac{ measure(\Omega_{S}) / \kappa_{S} }{ measure(\Omega_{M}) / \kappa_{M} + measure(\Omega_{S}) / \kappa_{S} };
+\]
+\pagebreak
+
+$ measure(\Omega_{M}) $
+\pagebreak
+
+$ measure(\Omega_{S}) $
+\pagebreak
+
+$ \kappa_{M} $
+\pagebreak
+
+$ \kappa_{S} $
+\pagebreak
+
+$ w_{S} $
+\pagebreak
+
+\[
+\gamma_{\kappa}^{GP} = \alpha^{GP} \kappa h^{2(i-1)+1}
+\]
+\pagebreak
+
+$ \alpha^{GP} $
+\pagebreak
+
+$ [ 0.001 ... 0.01 ] $
+\pagebreak
+
+$ i $
+\pagebreak
+
+\[
+w_{M} = \frac{ measure(\Omega_{M}) / \kappa_{M} }{ measure(\Omega_{M}) / \kappa_{M} + measure(\Omega_{S}) / \kappa_{S} };
+\]
+\pagebreak
+
+$ w_{M} $
+\pagebreak
+
+\[
+\gamma_{N} = 2.0\ \alpha_{N}\ \frac{ measure(\Gamma_{MS}) }{ measure(\Omega_{M}) / \kappa_{M} + measure(\Omega_{S}) / \kappa_{S} };
+\]
+\pagebreak
+
+$ measure(\Gamma_{MS}) $
+\pagebreak
+
+\[
+\gamma_{p}^{GP} = \alpha_{p}^{GP} \left( 
+\frac{ \mu }{ h } 
++ \frac{ \rho ||\mathbf{u}||_{\infty} }{ 6 } 
++ \frac{ \rho h }{ 12 \theta \Delta t }  
+\right)^{-1} h^{2i}\\
+\]
+\pagebreak
+
+$ \alpha_{p}^{GP} $
+\pagebreak
+
+$ [ 0.01 0.05 ] $
+\pagebreak
+
+$ || \bullet ||_{\infty} $
+\pagebreak
+
+$ \Delta t $
+\pagebreak
+
+$ \gamma_{p}^{GP} $
+\pagebreak
+
+\[
+\gamma_N = \alpha_N \left( 
+\frac{K}{h}
+\right)
+\]
+\pagebreak
+
+$ \alpha_N $
+\pagebreak
+
+$ [ 50 ... 100 ] $
+\pagebreak
+
+\[
+\begin{array}{lll}
+\tau_{M} & = &
+\frac{1}{\sqrt{ (\frac{2 \rho}{\Delta t})^2 
++ (\rho \mathbf{u}) \cdot \mathbf{G} \cdot (\rho \mathbf{u}) 
++ C_I (\mu)^2 \mathbf{G} : \mathbf{G}}}\\
+
+\tau_{C} & = & \frac{1}{\tau_{M} tr(\mathbf{G})}, 
+\quad G_{ij} = \sum_d \frac{\partial \xi_d}{\partial x_i} \frac{\partial \xi_d}{\partial x_j}\\
+\end{array}
+\]
+\pagebreak
+
+$ G_{ij} = \sum_d \frac{\partial \xi_d}{\partial x_i} \frac{\partial \xi_d}{\partial x_j} $
+\pagebreak
+
+\[
+\gamma_{t}^{GP} = \alpha_{t}^{GP} \frac{\rho}{\theta \Delta t} h^{2(i-1)+3}
+\]
+\pagebreak
+
+$ \alpha_{t}^{GP} $
+\pagebreak
+
+\[
+\gamma_N = \alpha_N \left( 
+\frac{\mu}{h} 
++ \frac{\rho || \mathbf{u} ||_{\infty}}{ 6 } 
++ \frac{\rho h}{12 \theta \Delta t} 
+\right)
+\]
+\pagebreak
+
+$ [ 50 100 ] $
+\pagebreak
+
+\[
+\gamma_{\mu}^{GP} = \alpha_{\mu}^{GP} \mu h^{2(i-1)+1}
+\]
+\pagebreak
+
+$ \alpha_{\mu}^{GP} $
+\pagebreak
+
+\[ A_{coarse} = P^T A_{fine} P \]
+\pagebreak
+
+\[ R_i(u_k(a_j)) = 0 \]
+\pagebreak
+
+$ R_i  \qquad i=1...N_{eqn} $
+\pagebreak
+
+$ a_j  \qquad j=1...N_a $
+\pagebreak
+
+$ u_k  \qquad k=1...N_u $
+\pagebreak
+
+\[ R_1 = u_{1} + 2u_{2} = 5 \]
+\pagebreak
+
+\[ R_2 = -3u_{2} + 1u_{1} = 0 \]
+\pagebreak
+
+\[u_1 = u_1(a_1, a_2) = 1a_1 + 1a_2 \]
+\pagebreak
+
+\[u_2 = u_2(a_1, a_2) = 1a_1 + 2a_2 \]
+\pagebreak
+
+\[Ele_1 : u_{e_1} = u_1 = a_1 + a_2 \]
+\pagebreak
+
+\[Ele_1 : u_{e_2} = u_2 = a_1 + 2a_2 \]
+\pagebreak
+
+\[Ele_2 : u_{e_1} = u_2 = a_1 + 2a_2 \]
+\pagebreak
+
+\[Ele_2 : u_{e_2} = u_1 = a_1 + a_2 \]
+\pagebreak
+
+\[ u_k=u_k(a_j)) \]
+\pagebreak
+
+$ \Omega_1 $
+\pagebreak
+
+$ \Omega_2 $
+\pagebreak
+
+$ \Gamma $
+\pagebreak
+
+$ x_i $
+\pagebreak
+
+\[         x_i \in \Omega_1    \]
+\pagebreak
+
+\[         x_i \in \Omega_2    \]
+\pagebreak
+
+\[         x_i \in \Gamma      \]
+\pagebreak
+
+$ \phi $
+\pagebreak
+
+\[ - \qquad            x_i \in \Omega_1    \]
+\pagebreak
+
+\[ + \qquad            x_i \in \Omega_2    \]
+\pagebreak
+
+\[ 0 \qquad            x_i \in \Gamma      \]
+\pagebreak
+
+$ S(\underline{t}) $
+\pagebreak
+
+\[ \phi = r - \left\| \underline{x} - \underline{x^c} \right\|             \]
+\pagebreak
+
+\[ \underline{x_{\Gamma}}: \qquad \phi(\underline{x},\underline{x^c},r) = 0 \]
+\pagebreak
+
+$ x_{\Gamma} $
+\pagebreak
+
+$ \phi = 0 $
+\pagebreak
+
+\[ \underline{x_{\Gamma}}: \qquad      x_1^c + rcos(t)\\ \qquad x_2^c + rsin(t)    \]
+\pagebreak
+
+$ \underline{x_{\Gamma}} $
+\pagebreak
+
+$ X_A $
+\pagebreak
+
+$ X_B $
+\pagebreak
+
+$ j $
+\pagebreak
+
+\[ \phi_A = \Sigma N_n\hat{\phi_A}  \]
+\pagebreak
+
+\[ \phi_B = \Sigma N_n\hat{\phi_B}  \]
+\pagebreak
+
+$ N_n $
+\pagebreak
+
+\[ \phi = \Sigma N_i \hat{\phi} \]
+\pagebreak
+
+$ N_i $
+\pagebreak
+
+$ L_2 $
+\pagebreak
+
+$ \underline{p} $
+\pagebreak
+
+$ \phi_{target} $
+\pagebreak
+
+$   \phi_{nodal}^{i} = T_{nodal} \times BsplineCoeffs   $
+\pagebreak
+
+$   \phi_{nodal}^{i} = T_{radial filter} \times p   $
+\pagebreak
+
+$   \phi_{nodal}^{i} = f(p)   $
+\pagebreak
+
+$   \phi_{nodal}^{i} = SDF(p)   $
+\pagebreak
+
+\[ \begin{algorithm}[ht]\center
+    \begin{algorithmic}[1]
+        \State{Set buffer size $d_{buffer}$}
+        \State{Flag element for refinement}
+        \State{Collect elements in queue for refinement}
+        \While {change in refinement queue}
+        \For{all elements in queue for refinement}
+        \State{Apply refinement buffer algorithm~\ref{alg_refinementBuffer}}
+        \State{Collect elements in queue for refinement}
+        \EndFor
+        \EndWhile
+        \State{Refine elements in refinement queue}
+        \If{element refinement level $< l_{min}$}
+        \State{Flag element for refinement}
+        \State{Refine element in refinement queue}
+        \EndIf
+    \end{algorithmic}        
+    \caption{Refinement algorithm.}
+    \label{alg_refinement}
+\end{algorithm} \]
+\pagebreak
+
+$ (N_x,N_y)=(2,2) $
+\pagebreak
+
+$ N_x,N_y,N_z $
+\pagebreak
+
+$ I $
+\pagebreak
+
+$ n_x,n_y,n_z $
+\pagebreak
+
+$N$
+\pagebreak
+
+$ \min(I)=\min[n_y (N_x - 1) + n_x (N_y - 1)] $
+\pagebreak
+
+$ N_x N_y = N $
+\pagebreak
+
+$ \min(I)=\min[n_x n_y (N_z-1) + n_x n_z (N_y-1) + n_y n_z (N_x-1)] $
+\pagebreak
+
+$ N_x N_y N_z= N $
+\pagebreak
+
+$(n_x,n_y)=(8,2)$
+\pagebreak
+
+$(N_x,N_y)=(4,2)$
+\pagebreak
+
+$ A $
+\pagebreak
+
+$ P_B $
+\pagebreak
+
+\[ P_B: A \rightarrow B  \]
+\pagebreak
+
+\[ P_{ij} \, J_{jk} \, P_{lk} \, \tilde \phi_l = P_{ij} \, J_{jk} \, \hat \phi_k \]
+\pagebreak
+
+\[ \hat \phi_j = P_{ij} \tilde\phi_i  \]
+\pagebreak
+
+$ n! $
+\pagebreak
+
+$\Omega$
+\pagebreak
+
+$\Omega^h$
+\pagebreak
+
+$\Gamma^h$
+\pagebreak
+
+\[
+    q^{e} = \int_{\Omega^{h,e}} f(x) d\Omega = \int_{\Omega^{h,e}_\xi} N(\xi) \hat{\mathbf{f}} J d\Omega_\xi \approx \sum_{j = 1}^{n_{gp}} w_j J(\xi_j) f(\xi_j)
+\]
+\pagebreak
+
+$\Omega^{h,e}$
+\pagebreak
+
+$f(x)=\mathbf{N}(x) \hat{\mathbf{f}}$
+\pagebreak
+
+$\mathbf{N}(x)$
+\pagebreak
+
+$\hat{\mathbf{f}}$
+\pagebreak
+
+$J = \frac{\partial x^e}{\partial \xi}$
+\pagebreak
+
+$\Omega^{h,e}_\xi$
+\pagebreak
+
+$n_{gp}$
+\pagebreak
+
+$w_j$
+\pagebreak
+
+$J$
+\pagebreak
+
+$\xi_j$
+\pagebreak
+
+$ \mathbf h $
+\pagebreak
+
+$ \mathbf g $
+\pagebreak
+
+$ \mathbf s $
+\pagebreak
+
+$ \underline{\mathbf s} $
+\pagebreak
+
+$ \overline{\mathbf s} $
+\pagebreak
+
+\begin{eqnarray*}
+  & \min_{\mathbf s} f( \mathbf s ) & \qquad \mathbf s  \in \mathbf R^{n_s} \\
+  & \mathbf h( \mathbf s ) = \mathbf 0 & \qquad \mathbf h \in \mathbf R^{n_h} \\
+  & \mathbf g( \mathbf s ) \leq \mathbf 0 & \qquad \mathbf g \in \mathbf R^{n_g} \\
+  & \underline{\mathbf s} \leq \mathbf s \leq \overline{\mathbf s}  
+\end{eqnarray*}
+\pagebreak
+
+$ n_s $
+\pagebreak
+
+$ n_h $
+\pagebreak
+
+$ n_g $
+\pagebreak
+
+$ \mathbf q $
+\pagebreak
+
+$ \mathbf u $
+\pagebreak
+
+\begin{eqnarray*}
+f & = & f \Big( \mathbf s, \mathbf q( \mathbf u, \mathbf s ) \Big) \\
+\mathbf h & = & \mathbf h \Big( \mathbf s, \mathbf q( \mathbf u, \mathbf s ) \Big) \\
+\mathbf g & = & \mathbf g \Big( \mathbf s, \mathbf q( \mathbf u, \mathbf s ) \Big) 
+\end{eqnarray*}
+\pagebreak
+
+$ \dfrac {df}{ d \mathbf s} $
+\pagebreak
+
+$ \dfrac {d \mathbf g}{ d \mathbf s} $
+\pagebreak
+
+$ \dfrac {d \mathbf h}{ d \mathbf s} $
+\pagebreak
+
+\begin{eqnarray*}
+\frac {df}{ d \mathbf s} & = & \frac {\partial f}{\partial \mathbf s} +
+                               \frac {\partial f}{\partial \mathbf q}
+                               \frac {\partial \mathbf q}{\partial \mathbf s} +
+                               \frac {\partial f}{\partial \mathbf q}
+                               \frac {\partial \mathbf q}{\partial \mathbf u}
+                               \frac {\partial \mathbf u}{\partial \mathbf s} \\
+                           
+\frac {d \mathbf g}{ d \mathbf s} & = & \frac {\partial \mathbf g }{\partial \mathbf s} +
+                                        \frac {\partial \mathbf g }{\partial \mathbf q}
+                                        \frac {\partial \mathbf q}{\partial \mathbf s} +
+                                        \frac {\partial \mathbf g }{\partial \mathbf q}
+                                        \frac {\partial \mathbf q}{\partial \mathbf u}
+                                        \frac {\partial \mathbf u}{\partial \mathbf s} \\
+
+\frac {d \mathbf h}{ d \mathbf s} & = & \frac {\partial \mathbf h }{\partial \mathbf s} +
+                                        \frac {\partial \mathbf h }{\partial \mathbf q}
+                                        \frac {\partial \mathbf q}{\partial \mathbf s} +
+                                        \frac {\partial \mathbf h }{\partial \mathbf q}
+                                        \frac {\partial \mathbf q}{\partial \mathbf u}
+                                        \frac {\partial \mathbf u}{\partial \mathbf s}
+\end{eqnarray*}
+\pagebreak
+
+$ d \mathbf u / d \mathbf s $
+\pagebreak
+
+$ n_q $
+\pagebreak
+
+$ n_s \le n_q $
+\pagebreak
+
+$ n_s \ge n_q $
+\pagebreak
+
+$ \frac {\partial f}{\partial \mathbf s} $
+\pagebreak
+
+$ \frac {\partial f}{\partial \mathbf q} $
+\pagebreak
+
+$ \frac {\partial \mathbf g }{\partial \mathbf s} $
+\pagebreak
+
+$ \frac {\partial \mathbf h }{\partial \mathbf s} $
+\pagebreak
+
+$ \frac {\partial \mathbf g }{\partial \mathbf q} $
+\pagebreak
+
+$ \frac {\partial \mathbf h }{\partial \mathbf q} $
+\pagebreak
+
+$ \frac {\partial \mathbf y}{\partial \mathbf x} $
+\pagebreak
+
+$ \frac {\partial y_i}{\partial x_j} $
+\pagebreak
+
+$ \frac {\partial \mathbf q }{\partial \mathbf s} $
+\pagebreak
+
+$ f(x) = const $
+\pagebreak
+
+$ f(x+y) = f(x)+f(y) $
+\pagebreak
+
+$ f(\alpha x) = \alpha f(x) $
+\pagebreak
+
+$ f(x) = const = 0 $
+\pagebreak
+
+$ A_{ij} $
+\pagebreak
+
+$ x_j $
+\pagebreak
+
+$ b_i $
+\pagebreak
+
+\[ A_{ij} \cdot x_j = b_i \]
+\pagebreak
+
+$ A = \sum w_i M_i $
+\pagebreak
+
+\[ \begin{bmatrix} A_{uu} & A_{cu} \\ A_{cu} & A_{cC} \\ \end{bmatrix} =
+\begin{bmatrix} x_{u} \\ x_{c} \\ \end{bmatrix} =
+\begin{bmatrix} b_{u} \\ b_{c} \\ \end{bmatrix} \]
+\pagebreak
+
+$ x_0 $
+\pagebreak
+
+$ R_i(x_i) $
+\pagebreak
+
+$ \frac{\partial R_i(x_i)}{\partial x_j} $
+\pagebreak
+
+$ \frac{\mid \mid R(x^{n+1}) \mid \mid}{\mid \mid R(x^{n}) \mid \mid} < tol $
+\pagebreak
+
+$ \frac{\partial R_i(x_i)}{\partial x_j} \cdot \delta x = R_i(x_i) $
+\pagebreak
+
+$ x^{n+1} = x^{n} \cdot \delta x $
+\pagebreak
+
+$ A:V \rightarrow V $
+\pagebreak
+
+$ P_{i}:V_{i} \rightarrow V $
+\pagebreak
+
+$ P_{i} $
+\pagebreak
+
+$ V_{i} $
+\pagebreak
+
+$ A_{i} = P_{i}^{T} A P_{i} $
+\pagebreak
+
+\[ T_i = P_i A_i^{-1} P^T A \]
+\pagebreak
+
+$ T_{i} = T_{i}^2 $
+\pagebreak
+
+\[ I - \sum_{i = 0}^n T_i \]
+\pagebreak
+
+\[ \prod_{i = 0}^n (I - T_i)  \]
+\pagebreak
+
+$  P_{i} $
+\pagebreak
+
+\[ R_i(x_j) = 0 \]
+\pagebreak
+
+$ x_j  \qquad j=1...N_a $
+\pagebreak
+
+\[ R_i(x_j) = R_i(x_{j0}) + \frac{\partial R_i(x_{j0})}{\partial x_j} \cdot (x_j - x_{j0}) + \mathcal{O}(x_j - x_{j0})^2 \]
+\pagebreak
+
+$ R_i(x_j) = 0 $
+\pagebreak
+
+$ J = \frac{\partial R_i(x_{j0})}{\partial x_j} $
+\pagebreak
+
+$ J = J + \alpha I $
+\pagebreak
+
+$ R_{i} = P_{i}^{T} R P_{i} $
+\pagebreak
+
+$ R $
+\pagebreak
+
+\[ \begin{pmatrix} u_{1,+}^{n}  \\ u_{2,+}^{n} \\ u_{3,+}^{n} \end{pmatrix} = f \begin{pmatrix} u_{1,-}^{n+1}  \\ u_{2,-}^{n+1} \\ u_{3,-}^{n+1} \end{pmatrix} \]
+\pagebreak
+
+$ u_{i,+}^{n} $
+\pagebreak
+
+$i$
+\pagebreak
+
+$\Omega_i$
+\pagebreak
+
+$\mathbf{x}$
+\pagebreak
+
+$ e = 5 $
+\pagebreak
+
+$ v_{e} = [12,3] $
+\pagebreak
+
+$ v_{sorted} = [3,12] $
+\pagebreak
+
+$ # = cantor_pair(3,12) = 119 $
+\pagebreak
+
+$ EDGE, e = 5, # = 119 $
+\pagebreak
+
+$ p_{DD} = [4,5] $
+\pagebreak
+
+$ v_{I} = [6,3,12] $
+\pagebreak
+
+$ v_{II} = [12,3,9] $
+\pagebreak
+
+$ v_{I}  = [6,3,12] $
+\pagebreak
+
+$ p_{e,I}  = [2,1] $
+\pagebreak
+
+$ p_{e,II} = [0,1] $
+\pagebreak
+
+$ ID_{e,I}  = -(1+1) = -2 $
+\pagebreak
+
+$ ID_{e,II} = +(0+1) = +1 $
+\pagebreak
+
+$ f(-2) = [6,5] $
+\pagebreak
+
+$ f(+1) = [3,4] $
+\pagebreak
+
+$ f(-2) = [3,4] $
+\pagebreak
+
+$ [17,13] $
+\pagebreak
+
+$ 0 $
+\pagebreak
+
+$ 1 $
+\pagebreak
+
+$ d_s-1 $
+\pagebreak
+
+$ 2 $
+\pagebreak
+
+$ d_s $
+\pagebreak
+
+$ 3 $
+\pagebreak
+
+\[
+  \mathbf{u}(\mathbf{x},t) =\sum_{i=1}^{n} N_i(\mathbf{x}) \bigg[u_i(t) + \sum_{j=1}^{n_{enrich}}G_j(\mathbf{x},t) a_{ij}\bigg]
+\]
+\pagebreak
+
+$G_j(\mathbf{x},t)$
+\pagebreak
+
+$a_{ij}$
+\pagebreak
+
+\[
+\mathbf{u}(\mathbf{x}) =\sum_{l=1}^L \sum_{m=1}^M\bigg( H(\psi) \sum_{i=1}^{n}N_i \hat{c}_{i,l}^m \bigg)
+\]
+\pagebreak
+
+$l$
+\pagebreak
+
+$L$
+\pagebreak
+
+$m$
+\pagebreak
+
+$M$
+\pagebreak
+
+$\hat{c}$
+\pagebreak
+
+$\psi$
+\pagebreak
+
+$\Omega^m$
+\pagebreak
+
+$H(z)$
+\pagebreak
+
+$\Omega_m \subseteq\Omega $
+\pagebreak
+
+$x \in \Omega_m$
+\pagebreak
+
+$\psi = 1$
+\pagebreak
+
+$\psi = 0$
+\pagebreak
+
+$M = 2$
+\pagebreak
+
+$\Omega^s$
+\pagebreak
+
+$\Omega_B$
+\pagebreak
+
+$\Omega_A$
+\pagebreak
+
+$\Omega_B^1$
+\pagebreak
+
+$\Omega_B^2$
+\pagebreak
+
+\[
+\mathit{R}_{Ghost} = \gamma_g \sum_{F \in \mathit{F}_{cut}} \sum_{j=1}^k h_K^{2(j-1)+1} \int_F [[  D^{j} v_i ]] [[ D^{j} u_i  ]] ds
+\label{eq:ghost_disp}
+\]
+\pagebreak
+
+$\gamma_g$
+\pagebreak
+
+$F$
+\pagebreak
+
+$\mathit{F}_{cut}$
+\pagebreak
+
+$k$
+\pagebreak
+
+$[[ \xi ]] = \xi_1 - \xi_2$
+\pagebreak
+
+$D^{j}$
+\pagebreak
+
+\[
+\mathit{R}_{Ghost} =  \gamma_g  \sum_{F \in \mathit{F}_{cut}} \sum_{j=1}^k h_K^{2(j-1)+1} \int_F [[  D^{j-1} \epsilon_{im} ]] [[  D^{j-1} \sigma_{im}]] ds
+\]
+\pagebreak
+
+$F_{cut}$
+\pagebreak
+
+$\Omega_1$
+\pagebreak
+
+$\Omega_2$
+\pagebreak
+
+$R_{Ghost}$
+\pagebreak
+
+$ 5.0 $
+\pagebreak
+
+$ 5$
+\pagebreak
+
+$ \mathbf{u}(\mathbf{x}) $
+\pagebreak
+
+\[ R_1 = u_{e_1} + 2u_{e_2} \]
+\pagebreak
+
+\[ R_2 = u_{e_2} - 2u_{e_1} \]
+\pagebreak
+
+\[ Ele_1 : u_{e_1} = u_1, u_{e_2} = u_2 \]
+\pagebreak
+
+\[ Ele_2 : u_{e_1} = u_2, u_{e_2} = u_1 \]
+\pagebreak
+
+\[u_1 = u_1(a_1, a_2) = a_1 + a_2 \]
+\pagebreak
+
+\[u_2 = u_2(a_1, a_2) = a_1 - 2a_2 \]
+\pagebreak
+
+\[Ele_1 : u_{e_2} = u_2 = a_1 - 2a_2 \]
+\pagebreak
+
+\[Ele_2 : u_{e_1} = u_2 = a_1 - 2a_2 \]
+\pagebreak
+
+$ \delta t $
+\pagebreak
+
+$ Q = \Omega \times ]t_{n}, t_{n+1}[ $
+\pagebreak
+
+$ \Omega $
+\pagebreak
+
+$ P = \Gamma \times ]t_{n}, t_{n+1}[ $
+\pagebreak
+
+$ t^{+}_{n} $
+\pagebreak
+
+$ n-1, n , n+1 $
+\pagebreak
+
+$ P_{n}^{+} $
+\pagebreak
+
+$ P_{n+1}^{-} $
+\pagebreak
+
+\[ R_1(\hat{u}_1, \hat{u}_2, \hat{u}_3) = 0 \]
+\pagebreak
+
+\[ R_2(\hat{u}_1, \hat{u}_2, \hat{u}_3) = 0 \]
+\pagebreak
+
+$ R_i              \qquad i=1...N_{eqn-block} $
+\pagebreak
+
+$ \hat{u}_j(x, t)  \qquad $
+\pagebreak
+
+$ \hat{u}_i \subseteq \hat{u} $
+\pagebreak
+
+\[ R_i(a_j) = 0 \]
+\pagebreak
+
+$ T_{ij} $
+\pagebreak
+
+$ 
+\hat{T} $
+\pagebreak
+
+\[
+T_{ij} = \left( \begin{array}{ccc}
+T_{xx} & T_{xy} & T_{xz} \\
+T_{yx} & T_{yy} & t_{yz} \\
+T_{zx} & T_{zy} & t_{zz} \end{array} \right) \Rightarrow \\
+\hat{T} = \left( \begin{array}{c}
+T_{xx} \\ T_{yy} \\ T_{zz} \\ T_{yz} \\ T_{xz} \\ T_{xy} \end{array} \right)
+\]
+\pagebreak
+
+\[
+T_{ij} = \left( \begin{array}{ccc}
+T_{xx} & T_{xy} & T_{xz} \\
+T_{yx} & T_{yy} & t_{yz} \\
+T_{zx} & T_{zy} & t_{zz} \end{array} \right) \Rightarrow \\
+\hat{T} = \left( \begin{array}{c}
+T_{xx} \\ T_{yy} \\ T_{zz} \\ T_{yz} \\ T_{xz} \\ T_{xy} \\ T_{zy} \\ T_{zx} \\ T_{yx} \end{array} \right)
+\]
+\pagebreak
+
+$ T_{ijkl} \Rightarrow \hat{T}_{pq} $
+\pagebreak
+
+$ (i,j) \rightarrow p $
+\pagebreak
+
+$ (k,l)\rightarrow q $
+\pagebreak
+
+$ A:B = A_{ij}B_{ij} $
+\pagebreak
+
+$ A:B = A_{ij}B_{ij} = \hat{A}^T \hat{B} $
+\pagebreak
+
+$ 
+A_{ij} = C_{ijkl}T_{kl} $
+\pagebreak
+
+\end{document}
